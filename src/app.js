@@ -30,7 +30,7 @@ app.get('', (req, res) => {
 
 app.get('/about', (req, res) => {
     res.render('about', {
-        title: 'I\'m about page... see me!',
+        title: 'About me',
         name: 'chloé',
         date: '12 November 2020'
     })
@@ -38,9 +38,9 @@ app.get('/about', (req, res) => {
 
 app.get('/help', (req, res) => {
     res.render('help', {
-        title:'This is the help page',
-        message: 'Please, write your message',
-        thanks: 'Thank you for your ask',
+        title:'Write me for helping',
+        message: 'Write hear',
+        thanks: 'Thanks for your message',
         name: 'Chloé'
     })
 })

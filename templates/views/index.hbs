@@ -12,11 +12,10 @@
 <body>
     <div class="main-content">
         {{>header}}
-        <p>Use this site to get your weather!</p>
+        <p>Use this site to get your weather in realtime!</p>
         <div>
-            <img class="weather-img" src="./public/IMG/weather-img.jpeg" alt="image météo">
+            <img class="weather-img" src="/IMG/weather-img.jpeg" alt="image météo">
         </div>
-    
         <form>
             <input placeholder="location">
             <button>Search</button>
@@ -24,6 +23,7 @@
        <p id="message-1"></p>
        <p id="message-2"></p>
     </div>
+
     {{>footer}}
 
      <script src="../JS/app.js"></script>
