@@ -2,7 +2,7 @@
 body {
     color: #333333;
     font-family: 'Quantico', sans-serif;
-    max-width: 900px;
+    max-width: 1000px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -10,8 +10,15 @@ body {
 }
 
 .main-content {
+    background-color: white;
     flex-grow: 1;
 }
+
+.nav-content {
+    padding: 2rem;
+    text-align: center;
+}
+
 .weather-content {
     display: flex;
     flex-direction: row;
@@ -44,6 +51,11 @@ body {
     flex-direction: column;
     margin-left: 3rem;
 }
+
+.message-about {
+    margin: 3rem;
+    width: 500px;
+}
 /* styles for pictures */
 .organisation-img {
     width: 70%;
@@ -61,8 +73,8 @@ body {
 }
 /* styles for header */
 header {
+    background-color: white;
     margin-top: 16px;
-    margin-bottom: 48px;
 }
 
 
@@ -123,9 +135,8 @@ textarea {
 
 /* styles for footer */
 footer {
+    background-color: white;
     color: #2461E0;
     border-top: 1px solid #888888;
     padding: 16px 0;
-    margin-top: 16px;
-
 }
