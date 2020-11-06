@@ -18,21 +18,20 @@ const partialsPath = path.join(__dirname, '../templates/partials')
 app.set('view engine', 'hbs')
 app.set('views', viewsPath)
 hbs.registerPartials(partialsPath)
+
 // SETUP STATIC DIRECTORY TO SERVE
 app.use(express.static(publicDirectoryPath))
 
 app.get('', (req, res) => {
     res.render('index',{
-        title : 'Weather',
-        name: 'Chloé'
+        title : 'Welcome in your utility application'
     })
 })
 
 app.get('/about', (req, res) => {
     res.render('about', {
         title: 'About me',
-        name: 'chloé',
-        date: '12 November 2020'
+        name: 'chloé'
     })
 })
 
@@ -40,35 +39,43 @@ app.get('/help', (req, res) => {
     res.render('help', {
         title:'Write me for helping',
         message: 'Write hear',
-        thanks: 'Thanks for your message',
-        name: 'Chloé'
+        thanks: 'Thanks for your message'
     })
 })
+
 app.get('/weather', (req, res) => {
-    if (!req.query.address) {
+    res.render('weather', {
+        title: 'Weather',
+        message: 'Please, provide an address'
+    }) 
+})
+
+app.get('/weather-address', (req,res) => {
+    if(!req.query.address) {
         return res.send({
-            error: 'Please, provide an adress',
+            error: 'You must provide an address'
         })
-    } 
-
-    geocode (req.query.address, (error, { latitude, longitude, location } = {}) => {
-        if (error) {
-            return res.send({ error })
-        }
-
-        forecast (latitude, longitude, (error, forecastData) => {
+    } else {
+        geocode (req.query.address, (error, { latitude, longitude, location } = {}) => {
             if (error) {
                 return res.send({ error })
             }
-
-            res.send({
-                forecast : forecastData,
-                location,
-                address: req.query.address
+    
+            forecast (latitude, longitude, (error, forecastData) => {
+                if (error) {
+                    return res.send({ error })
+                }
+    
+                res.send({
+                    forecast : forecastData,
+                    location,
+                    address: req.query.address
+                })
             })
         })
-    })
+    }
 })
+
 
 app.get('/products', (req,res) => {
     if (!req.query.search) {

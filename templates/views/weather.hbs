@@ -7,13 +7,24 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="/IMG/icon-weather.jpg">
     <link rel="stylesheet" href="./CSS/styles.css">
-    <title>Utils application</title>
+    <title>Weather</title>
 </head>
 <body>
     <div class="main-content">
         {{>header}}
-        <h1>Use tools for organize your day</h1>
-        {{>footer}} 
+        <p>Use this site to get your weather in realtime!</p>
+        <div>
+            <img class="weather-img" src="/IMG/weather-img.jpeg" alt="image météo">
+        </div>
+        <form>
+            <input placeholder="location">
+            <button>Search</button>
+        </form>
+       <p id="message-1"></p>
+       <p id="message-2"></p>
+    </div>
+
+    {{>footer}}
 
      <script src="../JS/app.js"></script>
 </body>
