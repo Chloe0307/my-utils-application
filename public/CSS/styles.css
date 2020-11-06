@@ -28,6 +28,11 @@ body {
     display: flex;
     flex-direction: row;
 }
+
+.help-content {
+    display: flex;
+    flex-direction: column;
+}
 /*  styles for messages */
 .msg-1 {
     font-size: 20px;
@@ -115,6 +120,7 @@ input {
     border: 1px solid black;
     padding: 8px;
     border-radius: 10px;
+    font-size: 15px;
 }
 
 button {
@@ -122,14 +128,19 @@ button {
     border: 1px solid #58B7FA;
     background: white;
     color: black;
+    font-size: 17px;
     padding: 8px;
     border-radius: 10px;
+    width: 200px;
+    margin-top: 1rem;
 }
 
 textarea {
+    width: 300px;
     border-radius: 10px;
-    border: 1px solid #58B7FA;
-    padding: 8px;
+    border: 2px solid #58B7FA;
+    padding: 10px;
+    font-size: 15px;
 }
 
 
