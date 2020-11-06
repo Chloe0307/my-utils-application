@@ -32,22 +32,23 @@ app.get('', (req, res) => {
 app.get('/about', (req, res) => {
     res.render('about', {
         title: 'About me',
-        name: 'chloé'
+        name: 'chloé Cuny'
     })
 })
 
 app.get('/help', (req, res) => {
     res.render('help', {
-        title:'Write me for helping',
-        message: 'Write hear',
-        thanks: 'Thanks for your message'
+        title:'Write me to helping you',
+        thanks: 'Thanks for your message',
+        name: 'Chloé Cuny'
     })
 })
 
 app.get('/weather', (req, res) => {
     res.render('weather', {
         title: 'Weather',
-        message: 'Please, provide an address'
+        message: 'Please, provide an address',
+        name: 'Chloé Cuny'
     }) 
 })
 

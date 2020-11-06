@@ -1,6 +1,6 @@
 /* styles for the body and contents*/
 body {
-    color: #333333;
+    color: black;
     font-family: 'Quantico', sans-serif;
     max-width: 1000px;
     margin: 0 auto;
@@ -134,11 +134,15 @@ button {
     width: 200px;
     margin-top: 1rem;
 }
-
+#help-form {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 16px;
+}
 textarea {
     width: 300px;
     border-radius: 10px;
-    border: 2px solid #58B7FA;
+    border: 1px solid #58B7FA;
     padding: 10px;
     font-size: 15px;
 }

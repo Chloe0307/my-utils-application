@@ -14,11 +14,15 @@
     <div class="main-content">
         {{>header}}
         <div class="help-content">
-             <textarea name="" id="" cols="50" rows="15" placeholder={{message}}></textarea>
-            <button>Submit</button>
+            <form id="help-form">
+                <textarea name="" id="" cols="50" rows="15" placeholder="Write hear..."></textarea>
+                <button>Submit</button>
+            </form>
             <p>{{thanks}}</p>
         </div>
     </div>
     {{>footer}}
+
+    <script src="../JS/app.js"></script>
 </body>
 </html>
