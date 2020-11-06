@@ -5,23 +5,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" href="/IMG/icon-weather.jpg">
+    <link rel="icon" href="/IMG/icon-svg.webp">
+     <link href="https://fonts.googleapis.com/css2?family=Merienda&family=Quantico&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./CSS/styles.css">
     <title>Weather</title>
 </head>
 <body>
     <div class="main-content">
         {{>header}}
-        <p>Use this site to get your weather in realtime!</p>
-        <div>
-            <img class="weather-img" src="/IMG/weather-img.jpeg" alt="image météo">
+        <p class="msg-1">Please, provide an address for know the weather.</p>
+        <p class="msg-2">Where you want!</p>
+        <p class="msg-3">When you want!</p>
+
+        <div class="weather-content">
+            <img class="weather-img" src="/IMG/weather-img.jpeg" alt="image soleil">
+           <div>
+                <form>
+                    <input placeholder="location">
+                    <button>Search</button>
+                </form>
+                <p id="message-location"><p>
+                <p id="message-forecast"></p>
+           </div>
         </div>
-        <form>
-            <input placeholder="location">
-            <button>Search</button>
-        </form>
-       <p id="message-1"></p>
-       <p id="message-2"></p>
+
     </div>
 
     {{>footer}}

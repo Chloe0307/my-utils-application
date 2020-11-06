@@ -24,7 +24,8 @@ app.use(express.static(publicDirectoryPath))
 
 app.get('', (req, res) => {
     res.render('index',{
-        title : 'Welcome in your utility application'
+        title : 'Welcome in your utility application',
+        name: "Chloé Cuny"
     })
 })
 

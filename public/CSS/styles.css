@@ -1,8 +1,8 @@
-
+/* styles for the body and contents*/
 body {
     color: #333333;
-    font-family: arial;
-    max-width: 650px;
+    font-family: 'Quantico', sans-serif;
+    max-width: 900px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -12,6 +12,43 @@ body {
 .main-content {
     flex-grow: 1;
 }
+.weather-content {
+    display: flex;
+    flex-direction: row;
+}
+
+.about-content {
+    display: flex;
+    flex-direction: row;
+}
+/*  styles for messages */
+.msg-1 {
+    font-size: 20px;
+}
+.msg-2 {
+    font-size: 30px;
+    line-height: 1rem;
+    margin-left: 3rem;
+}
+.msg-3 {
+    font-size: 40px;
+    line-height: 1rem;
+    margin-left: 6rem;
+}
+
+#message-location {
+    flex-direction: column;
+    margin-left: 3rem;
+}
+#message-forecast {
+    flex-direction: column;
+    margin-left: 3rem;
+}
+/* styles for pictures */
+.organisation-img {
+    width: 70%;
+}
+
 .portrait {
     width: 280px;
     border: 1px solid #58B7FA;
@@ -22,29 +59,44 @@ body {
     width: 500px;
     height: 50vh;
 }
-
-footer {
-    color: #2461E0;
-    border-top: 1px solid #888888;
-    padding: 16px 0;
-    margin-top: 16px;
-
-}
-
+/* styles for header */
 header {
     margin-top: 16px;
     margin-bottom: 48px;
 }
 
-h1 {
-    font-size: 64px;
-    margin-bottom: 16px;
-}
 
 header a {
-    color: ;
+    color: #2461E0;
     margin-right: 16px;
     text-decoration: none;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+
+/*  styles for titles */
+.header-title {
+    font-size: 64px;
+    margin-bottom: 16px;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid black;
+}
+
+.home-title {
+    font-size: 50px;
+    color: #2461E0;
+    text-align: center;
+}
+
+
+/* styles for forms */
+form {
+    margin-top: 5rem;
+    margin-left: 3rem;
 }
 
 input {
@@ -66,4 +118,14 @@ textarea {
     border-radius: 10px;
     border: 1px solid #58B7FA;
     padding: 8px;
+}
+
+
+/* styles for footer */
+footer {
+    color: #2461E0;
+    border-top: 1px solid #888888;
+    padding: 16px 0;
+    margin-top: 16px;
+
 }
