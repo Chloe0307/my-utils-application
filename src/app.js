@@ -27,7 +27,7 @@ app.use(express.static(publicDirectoryPath))
 app.get('', (req, res) => {
     res.render('index',{
         title : 'Bienvenue sur la boîte à outils',
-        name: "Chloé Cuny"
+        name: "Chloé Cuny",
     })
 })
 
@@ -45,7 +45,7 @@ app.get('/help', (req, res) => {
     res.render('help', {
         title:'Ecrivez-moi pour obtenir de l\'aide',
         thanks: 'Merci pour votre message',
-        name: 'Chloé Cuny'
+        name: 'Chloé Cuny',
     })
 })
 
