@@ -8,7 +8,11 @@ body {
     flex-direction: column;
     min-height: 100vh;
 }
-
+.header-content {
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: row;
+}
 .main-content {
     background-color: white;
     flex-grow: 1;
@@ -27,6 +31,7 @@ body {
 .about-content {
     display: flex;
     flex-direction: row;
+    margin: auto;
 }
 
 .help-content {
@@ -58,18 +63,23 @@ body {
 }
 
 .message-about {
-    margin: 3rem;
+    margin-right: 3rem;
+    margin-left: 3rem;
     width: 500px;
+    line-height: 2rem;
+    line-clamp: unset;
+    font-size: 20px;
 }
 /* styles for pictures */
 .organisation-img {
-    width: 70%;
+    width: 17%;
 }
 
 .portrait {
-    width: 280px;
+    width: 250px;
     border: 1px solid #58B7FA;
     border-radius: 10px;
+    margin-left: 3rem;
 }
 
 .weather-img {
@@ -94,11 +104,12 @@ header a {
 
 /*  styles for titles */
 .header-title {
-    font-size: 64px;
+    font-size: 50px;
     margin-bottom: 16px;
     margin: auto;
     text-align: center;
     margin-bottom: 30px;
+    padding-top: 1rem;
     padding-bottom: 16px;
     border-bottom: 2px solid black;
 }

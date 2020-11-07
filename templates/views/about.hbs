@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" href="/IMG/icon-svg.webp">
-     <link href="https://fonts.googleapis.com/css2?family=Merienda&family=Quantico&display=swap" rel="stylesheet">
+    <link rel="icon" href="/IMG/icon-about.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Merienda&family=Quantico&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./CSS/styles.css">
     <title>A propos</title>
 </head>
@@ -14,8 +14,15 @@
   <div class="main-content">
     {{>header}}
     <div class="about-content">
-        <p class="message-about">Ce site internet a été créée par Chloé Cuny.Pour la géolocalisation, nous utilisons l'API mapbox.com et l'API weatherstack.com pour vous donner la météo.</p>
-    <img class="portrait" src="/IMG/chloé.jpg" alt="portrait creatrice du site">
+        <p class="message-about">
+          Pour l'outil météo, nous utilisons l'API mapbox.com pour la localisation et l'API weatherstack.com pour vous donner la météo.
+          Ce site internet a été crée par {{name}}.
+          {{profession}} depuis Juillet 2020.
+          Formé par l'école 
+          <a class="oclock-external-link" href="https://oclock.io">O'clock</a>
+          </p>
+        
+        <img class="portrait" src="/IMG/chloé-img.jpg" alt="portrait creatrice du site">
     </div>
   </div>
     {{>footer}}
