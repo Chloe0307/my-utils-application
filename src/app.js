@@ -39,7 +39,7 @@ app.get('/about', (req, res) => {
 
 app.get('/help', (req, res) => {
     res.render('help', {
-        title:'Ecrivez-nous pour obtenir de l\'aide',
+        title:'Ecrivez-moi pour obtenir de l\'aide',
         thanks: 'Merci pour votre message',
         name: 'Chloé Cuny'
     })
@@ -47,7 +47,7 @@ app.get('/help', (req, res) => {
 
 app.get('/weather', (req, res) => {
     res.render('weather', {
-        title: 'Météo',
+        title: 'Connaître la météo',
         message: 'Vous devez fournir une adresse valide',
         name: 'Chloé Cuny'
     }) 
