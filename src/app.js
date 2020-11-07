@@ -22,6 +22,8 @@ hbs.registerPartials(partialsPath)
 // SETUP STATIC DIRECTORY TO SERVE
 app.use(express.static(publicDirectoryPath))
 
+//  ======== NAV LIST ROADS ==========
+// HOME ROAD
 app.get('', (req, res) => {
     res.render('index',{
         title : 'Bienvenue sur la boîte à outils',
@@ -29,6 +31,7 @@ app.get('', (req, res) => {
     })
 })
 
+// ABOUT ROAD
 app.get('/about', (req, res) => {
     res.render('about', {
         title: 'Qui suis-je?',
@@ -37,6 +40,7 @@ app.get('/about', (req, res) => {
     })
 })
 
+// HELP ROAD
 app.get('/help', (req, res) => {
     res.render('help', {
         title:'Ecrivez-moi pour obtenir de l\'aide',
@@ -45,6 +49,10 @@ app.get('/help', (req, res) => {
     })
 })
 
+
+
+//  ======= TOOLS LIST ROADS =============
+// UPDATE WEATHER ROAD
 app.get('/weather', (req, res) => {
     res.render('weather', {
         title: 'Connaître la météo',
@@ -53,6 +61,7 @@ app.get('/weather', (req, res) => {
     }) 
 })
 
+// GET WEATHER ROAD
 app.get('/weather-address', (req,res) => {
     if(!req.query.address) {
         return res.send({
@@ -78,7 +87,16 @@ app.get('/weather-address', (req,res) => {
     }
 })
 
+app.get('/calendar', (req,res) => {
+    res.render('calendar', {
+        title: 'Mon calendrier',
+        message: 'i\'m the calendar baby! But I don\'t exist yet',
+    })
+})
 
+
+//  ==== ERROR LIST ROADS ==========
+// NO SEARCH TERM ROAD
 app.get('/products', (req,res) => {
     if (!req.query.search) {
         return res.send({
@@ -90,6 +108,7 @@ app.get('/products', (req,res) => {
         })  
 })
 
+// HELP AND MORE ARGUMENTS ROAD
 app.get('/help/*', (req, res) => {
     res.render('404-page', {
         title: '404',
@@ -97,6 +116,7 @@ app.get('/help/*', (req, res) => {
     })
 })
 
+// ERROR 404 ROAD
 app.get('*', (req, res) => {
     res.render('404-page', {
         title:'404',
@@ -105,6 +125,7 @@ app.get('*', (req, res) => {
     })
 })
 
+// SERVER ROAD
 app.listen(port, () => {
     console.log('serveur is up on port' + port)
 })

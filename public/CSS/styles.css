@@ -87,6 +87,13 @@ body {
     height: 50vh;
 }
 
+.div-link-home {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+
 /* styles for buttons */
 .btn-group {
     margin-top: 4rem;
@@ -95,11 +102,11 @@ body {
 }
 
 .button-weather {
-    width: 20%;
+    width: 90%;
     margin-left: 20px;
 }
  .button-calendar {
-     width: 20%;
+     width: 90%;
      margin-left: 20px;
      border: 2px solid purple;
      border-radius: 45px;
@@ -143,6 +150,11 @@ header a {
 form {
     margin-top: 5rem;
     margin-left: 3rem;
+}
+.label-home {
+    padding-bottom: 1rem;
+    padding-left: 10px;
+    text-align: center;
 }
 
 input {
