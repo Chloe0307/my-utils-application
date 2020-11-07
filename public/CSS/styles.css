@@ -86,6 +86,24 @@ body {
     width: 500px;
     height: 50vh;
 }
+
+/* styles for buttons */
+.btn-group {
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.button-weather {
+    width: 20%;
+    margin-left: 20px;
+}
+ .button-calendar {
+     width: 20%;
+     margin-left: 20px;
+     border: 2px solid purple;
+     border-radius: 45px;
+ }
 /* styles for header */
 header {
     background-color: white;
