@@ -24,30 +24,31 @@ app.use(express.static(publicDirectoryPath))
 
 app.get('', (req, res) => {
     res.render('index',{
-        title : 'Welcome in your utility application',
+        title : 'Bienvenue sur la boîte à outils',
         name: "Chloé Cuny"
     })
 })
 
 app.get('/about', (req, res) => {
     res.render('about', {
-        title: 'About me',
-        name: 'chloé Cuny'
+        title: 'Qui suis-je?',
+        name: 'Chloé Cuny',
+        profession: 'Développeuse Web Fulstack JavaScript',
     })
 })
 
 app.get('/help', (req, res) => {
     res.render('help', {
-        title:'Write me to helping you',
-        thanks: 'Thanks for your message',
+        title:'Ecrivez-nous pour obtenir de l\'aide',
+        thanks: 'Merci pour votre message',
         name: 'Chloé Cuny'
     })
 })
 
 app.get('/weather', (req, res) => {
     res.render('weather', {
-        title: 'Weather',
-        message: 'Please, provide an address',
+        title: 'Météo',
+        message: 'Vous devez fournir une adresse valide',
         name: 'Chloé Cuny'
     }) 
 })
@@ -55,7 +56,7 @@ app.get('/weather', (req, res) => {
 app.get('/weather-address', (req,res) => {
     if(!req.query.address) {
         return res.send({
-            error: 'You must provide an address'
+            error: 'Vous devez fournir une adresse'
         })
     } else {
         geocode (req.query.address, (error, { latitude, longitude, location } = {}) => {
@@ -81,7 +82,7 @@ app.get('/weather-address', (req,res) => {
 app.get('/products', (req,res) => {
     if (!req.query.search) {
         return res.send({
-            error: 'You must provide a search term',
+            error: 'Vous devez fournir un terme de recherche',
         })
     }
         res.render({
@@ -92,14 +93,14 @@ app.get('/products', (req,res) => {
 app.get('/help/*', (req, res) => {
     res.render('404-page', {
         title: '404',
-        errorMessage: 'This article not found'
+        errorMessage: 'Article non trouvé'
     })
 })
 
 app.get('*', (req, res) => {
     res.render('404-page', {
         title:'404',
-        errorMessage : 'This page not found',
+        errorMessage : 'Page non trouvée',
 
     })
 })
