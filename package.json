@@ -13,6 +13,7 @@
     "express": "^4.17.1",
     "hbs": "^4.1.1",
     "heroku": "^7.47.0",
+    "node-calendar": "^0.1.5",
     "request": "^2.88.2"
   }
 }
