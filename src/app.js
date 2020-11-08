@@ -87,6 +87,7 @@ app.get('/weather-address', (req,res) => {
     }
 })
 
+// CALENDAR ROAD
 app.get('/calendar', (req,res) => {
     res.render('calendar', {
         title: 'Mon calendrier',
@@ -94,6 +95,13 @@ app.get('/calendar', (req,res) => {
     })
 })
 
+// NOTEPAD ROAD
+app.get('/notepad', (req,res) => {
+    res.render('notepad', {
+        title: 'Mes petites notes',
+        message: 'I\'m the notepad baby! But I don\'t exist yet',
+    })
+})
 
 //  ==== ERROR LIST ROADS ==========
 // NO SEARCH TERM ROAD

@@ -100,17 +100,27 @@ body {
     margin-top: 4rem;
     display: flex;
     flex-direction: row;
+    margin-bottom: 3rem;
 }
 
 .button-weather {
     width: 90%;
     margin-left: 20px;
+    border: 2px solid #f9d24d;
+    border-radius: 45px;
 }
  .button-calendar {
      width: 90%;
      margin-left: 20px;
      border: 2px solid purple;
      border-radius: 45px;
+ }
+
+ .button-notepad {
+    width: 90%;
+    margin-left: 20px;
+    border: 2px solid #00dfc0;
+    border-radius: 45px;
  }
 /* styles for header */
 header {
