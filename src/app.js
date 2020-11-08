@@ -110,6 +110,15 @@ app.get('/notepad', (req,res) => {
     })
 })
 
+
+//  TODOLIST ROAD
+app.get('/todolist', (req,res) => {
+    res.render('todolist', {
+        title: 'Ma Todolist',
+        message: 'Créez vos listes de tâches à effectuer'
+
+    })
+})
 //  ==== ERROR LIST ROADS ==========
 // NO SEARCH TERM ROAD
 app.get('/products', (req,res) => {

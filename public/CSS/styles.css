@@ -155,13 +155,11 @@ header a {
 
 
 
-
-
 /* styles for buttons */
 .btn-group {
-    margin-top: 4rem;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     margin-bottom: 3rem;
 }
 
@@ -185,7 +183,12 @@ header a {
     border-radius: 45px;
  }
 
-
+.button-todolist {
+    width: 90%;
+    margin-left: 20px;
+    border: 2px solid black;
+    border-radius: 45px;
+}
 
 
 
