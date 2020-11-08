@@ -49,6 +49,13 @@ app.get('/help', (req, res) => {
     })
 })
 
+// LEGAL MENTIONS ROAD
+app.get('/legal-mentions', (req,res) => {
+    res.render('legal-mentions', {
+        title: 'Mentions légales'
+    })
+})
+
 
 
 //  ======= TOOLS LIST ROADS =============

@@ -38,16 +38,58 @@ body {
     display: flex;
     flex-direction: column;
 }
+
+
+/* styles for header */
+header {
+    background-color: white;
+    margin-top: 16px;
+}
+
+.header-title {
+    font-size: 50px;
+    margin-bottom: 16px;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 30px;
+    padding-top: 1rem;
+    padding-bottom: 16px;
+    border-bottom: 2px solid black;
+}
+
+header a {
+    color: #2461E0;
+    margin-right: 16px;
+    text-decoration: none;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+
+
+
+/*  styles for titles */
+
+.home-title {
+    font-size: 50px;
+    color: #2461E0;
+    text-align: center;
+}
+
+
+
+
+
 /*  styles for messages */
-.msg-1 {
+.msg-weather-1 {
     font-size: 20px;
 }
-.msg-2 {
+.msg-weather-2 {
     font-size: 30px;
     line-height: 1rem;
     margin-left: 3rem;
 }
-.msg-3 {
+.msg-weather-3 {
     font-size: 40px;
     line-height: 1rem;
     margin-left: 6rem;
@@ -70,6 +112,21 @@ body {
     line-clamp: unset;
     font-size: 20px;
 }
+
+.msg-help-1 {
+    font-size: 24px;
+    text-align: center;
+}
+
+.msg-help-2 {
+    font-size: 18px;
+    padding-left: 3rem;
+}
+
+
+
+
+
 /* styles for pictures */
 .organisation-img {
     width: 20%;
@@ -92,7 +149,12 @@ body {
     width: 200px;
     display: flex;
     flex-direction: column;
+    margin-left: 20px;
 }
+
+
+
+
 
 
 /* styles for buttons */
@@ -122,39 +184,9 @@ body {
     border: 2px solid #00dfc0;
     border-radius: 45px;
  }
-/* styles for header */
-header {
-    background-color: white;
-    margin-top: 16px;
-}
 
 
-header a {
-    color: #2461E0;
-    margin-right: 16px;
-    text-decoration: none;
-    font-size: 20px;
-    margin-top: 20px;
-}
 
-
-/*  styles for titles */
-.header-title {
-    font-size: 50px;
-    margin-bottom: 16px;
-    margin: auto;
-    text-align: center;
-    margin-bottom: 30px;
-    padding-top: 1rem;
-    padding-bottom: 16px;
-    border-bottom: 2px solid black;
-}
-
-.home-title {
-    font-size: 50px;
-    color: #2461E0;
-    text-align: center;
-}
 
 
 /* styles for forms */
@@ -200,10 +232,28 @@ textarea {
 }
 
 
+
+
+
 /* styles for footer */
 footer {
     background-color: white;
     color: #2461E0;
     border-top: 1px solid #888888;
     padding: 16px 0;
+}
+
+.footer-title {
+    color: black;
+    margin:auto;
+    border-bottom: 1px solid black;
+    width: 170px;
+}
+
+footer a {
+    color: #2461E0;
+    margin-left: 3rem;
+    text-decoration: none;
+    font-size: 15px;
+    margin-top: 20px;
 }
