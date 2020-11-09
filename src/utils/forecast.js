@@ -14,16 +14,13 @@ const forecast = (latitude, longitude, callback) => {
         } else if (body.error) {
             callback('Unable to find location', undefined)
         } else {
+        
             callback(undefined, 
                 'Aujourd\'hui le temps est ' + body.current.weather_descriptions[0] + '.' +
-                'Il fait actuellement ' + body.current.temperature + ' degrés.' + 
-                'Le risque de précipitations est de ' + body.current.precip + '%'
-                
-                // weather_descriptions: body.current.weather_descriptions,
-                // temperature: body.current.temperature,
-                // precip: body.current.precip,
-                // units: body.request.unit
+                ' Il fait actuellement ' + body.current.temperature + ' degrés.' + 
+                ' Le risque de précipitations est de ' + body.current.precip + '%'
             )
+        //   body.current.weather_descriptions[0] 
         }
     })
 }
