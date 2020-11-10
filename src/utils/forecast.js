@@ -1,12 +1,14 @@
 const request = require('request')
-
+const i18next = require('i18next')
 
 const forecast = (latitude, longitude, callback) => {
 
    
     const url = 'http://api.weatherstack.com/current?access_key=da731f3b4e97742d2660fa33cc1c370a&query=' + latitude + ',' + longitude + '&units=m'
-//  ici on a utilisé la syntaxe abrégée ES6 : url : url => url, pas de changement dans json:true car la propriété et la valeur n'ont pas le même nom. 
-//  et on a changé response en { body } car on sait que dans body est dans l'objet response, on fait directement appel a body. le résultat est le même
+
+    const language = 
+    //  ici on a utilisé la syntaxe abrégée ES6 : url : url => url, pas de changement dans json:true car la propriété et la valeur n'ont pas le même nom. 
+    //  et on a changé response en { body } car on sait que dans body est dans l'objet response, on fait directement appel a body. le résultat est le même
     request({ url, json: true}, (error, { body }) => {
 
         if(error) {
@@ -21,8 +23,10 @@ const forecast = (latitude, longitude, callback) => {
                 ' Le risque de précipitations est de ' + body.current.precip + '%'
             )
         //   body.current.weather_descriptions[0] 
+        console.log(body.current.weather_descriptions)
         }
     })
 }
+
 
 module.exports = forecast
