@@ -1,4 +1,5 @@
 
+
 console.log('Cliend side javascript file is loader')
 
 const weatherForm = document.querySelector('form')

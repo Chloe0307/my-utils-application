@@ -1,4 +1,3 @@
-const i18next = require('i18next')
 
 const weatherDescription = {
     en : {
@@ -8,7 +7,6 @@ const weatherDescription = {
             SUNNY : "sunny",
             PATCHES_OF_FOG : "patches of fog",
             CLEAR : "clear",
-
         }
     },
 
@@ -22,5 +20,4 @@ const weatherDescription = {
 
         }
     }
-
 } 
