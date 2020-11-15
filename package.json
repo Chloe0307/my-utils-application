@@ -11,6 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@fullcalendar/core": "^5.4.0",
+    "@fullcalendar/daygrid": "^5.4.0",
     "calendar-dates": "^2.7.0",
     "express": "^4.17.1",
     "hbs": "^4.1.1",
