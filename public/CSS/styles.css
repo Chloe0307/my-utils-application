@@ -40,14 +40,7 @@ body {
     flex-direction: column;
 }
 
-#calendar-content {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    height: 100vh;
-    border-top: 2px solid purple;
-    border-left: 2px solid purple;
-    margin-bottom: 3rem;
-}
+
 /* styles for header */
 header {
     background-color: white;
@@ -242,15 +235,6 @@ textarea {
     border: 1px solid #58B7FA;
     padding: 10px;
     font-size: 15px;
-}
-
-.day {
-    text-align: center;
-    font-weight: bold;
-    padding-top: 5px;
-    border-bottom: 2px solid purple;
-    border-right: 2px solid purple;
-    background-color: #FFF1D5;
 }
 
 
