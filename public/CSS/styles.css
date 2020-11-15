@@ -19,8 +19,9 @@ body {
 }
 
 .nav-content {
-    padding: 2rem;
-    text-align: center;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    text-align: left;
 }
 
 .weather-content {
@@ -39,7 +40,14 @@ body {
     flex-direction: column;
 }
 
-
+#calendar-content {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    height: 100vh;
+    border-top: 2px solid purple;
+    border-left: 2px solid purple;
+    margin-bottom: 3rem;
+}
 /* styles for header */
 header {
     background-color: white;
@@ -128,8 +136,10 @@ header a {
 
 
 /* styles for pictures */
-.organisation-img {
+.category-icon {
     width: 20%;
+    border-radius: 45px;
+    border: 2px solid black;
 }
 
 .portrait {
@@ -192,7 +202,7 @@ header a {
 
 
 
-/* styles for forms */
+/* styles for forms and table calendar*/
 form {
     margin-top: 5rem;
     margin-left: 3rem;
@@ -234,7 +244,14 @@ textarea {
     font-size: 15px;
 }
 
-
+.day {
+    text-align: center;
+    font-weight: bold;
+    padding-top: 5px;
+    border-bottom: 2px solid purple;
+    border-right: 2px solid purple;
+    background-color: #FFF1D5;
+}
 
 
 
