@@ -1,12 +1,25 @@
-import { Calendar } from "@fullcalendar/core";
-import dayGridPlugin from "@fullcalendar/daygrid";
+const Calendar = ('fullcalendar/core')
+const dayGridPlugin = ('fullcalendar/daygrid')
 
-document.addEventListener('DOMContentLoaded', function() {
-    const calendarEl = document.getElementById('calendar');
+let app = {
+
+  init : function () {
+    app.createCalendar()
+  },
+
+  createCalendar : function () {
+
+      const calendarEl = document.getElementById('calendar-content');
+      console.log(calendarEl)
+
+      const calendar = new Calendar(calendarEl, {
   
-    const calendar = new Calendar(calendarEl, {
-      plugins: [ dayGridPlugin ]
-    });
-  
+        plugins: [ dayGridPlugin ],
+        initialView : 'dayGridMonth'
+      });
+    
     calendar.render();
-  })
+  },
+};
+
+document.addEventListener('DOMContentLoaded', app.init)
