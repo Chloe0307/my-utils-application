@@ -1,4 +1,3 @@
-import { Calendar } from "@fullcalendar/core"
 
 let app = {
 

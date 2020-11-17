@@ -1,5 +1,5 @@
-const Calendar = ('fullcalendar/core')
-const dayGridPlugin = ('fullcalendar/daygrid')
+const Calendar = require('fullcalendar/core')
+const dayGridPlugin = require('fullcalendar/daygrid')
 
 let app = {
 
