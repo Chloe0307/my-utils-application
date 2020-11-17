@@ -17,7 +17,7 @@ const id = new ObjectID()
 // getTimestamp() permet de récuperer l horodatage exact au moment ou on le demande)
 // console.log(id.getTimestamp())
 
-MongoClient.connect(connectionURL, { useUnifiedTopology : true }, (error, client) => {
+MongoClient.connect(connectionURL, { useUnifiedTopology : true, useNewUrlParser: true }, (error, client) => {
 
     if(error) {
         return console.log('Unable to connect to database!')
