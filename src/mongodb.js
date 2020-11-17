@@ -10,7 +10,7 @@ const { MongoClient, ObjectID } = require('mongodb')
 const connectionURL = 'mongodb://127.0.0.1:27017'
 const databaseName = 'task-manager'
 
-// const id = new ObjectID()
+const id = new ObjectID()
 // TIPS : si on faisait console.log(id.id) => nous donnerais la chaine en binaire : <Buffer 5f b2 7b d3 1d 36 75 1f b3 46 09 ef> (12 caractères)
 //  TIPS : si on faisait console.log(id.toHexString(),length) => cela nous donnerai une longueur de chaine 2X plus longue de 24 caractères.
 // console.log(id)
@@ -26,10 +26,5 @@ MongoClient.connect(connectionURL, { useUnifiedTopology : true }, (error, client
     // appelle a notre bdd
     const db = client.db(databaseName)
 
-    db.collection('users').findOne({ name : 'Chloé'}, (error, user) => {
-        if(error) {
-            return console.log('Unable to fetch')
-        }
-        console.log(user)
-    })
+  
 })

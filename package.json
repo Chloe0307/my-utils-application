@@ -6,8 +6,8 @@
   "scripts": {
     "start": "node src/app.js",
     "dev": "nodemon src/app.js -e js,hbs",
-    "mongodb" : "/home/etudiant/mongodb/bin/mongod --dbpath=/home/etudiant/mongodb-data",
-    "database" : "node src/mongodb.js"
+    "mongodb": "/home/etudiant/mongodb/bin/mongod --dbpath=/home/etudiant/mongodb-data",
+    "database": "node src/mongodb.js"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +21,7 @@
     "heroku": "^7.47.0",
     "i18next": "^19.8.3",
     "mongodb": "^3.6.3",
+    "mongoose": "^5.10.15",
     "request": "^2.88.2"
   },
   "devDependencies": {
