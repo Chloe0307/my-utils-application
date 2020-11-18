@@ -7,7 +7,8 @@
     "start": "node src/app.js",
     "dev": "nodemon src/app.js -e js,hbs",
     "mongodb": "/home/etudiant/mongodb/bin/mongod --dbpath=/home/etudiant/mongodb-data",
-    "database": "node src/mongodb.js"
+    "database": "node src/mongodb.js",
+    "mongoose": "node src/db/mongoose.js"
   },
   "keywords": [],
   "author": "",
@@ -22,7 +23,8 @@
     "i18next": "^19.8.3",
     "mongodb": "^3.6.3",
     "mongoose": "^5.10.15",
-    "request": "^2.88.2"
+    "request": "^2.88.2",
+    "validator": "^13.1.17"
   },
   "devDependencies": {
     "nodemon": "^2.0.6"

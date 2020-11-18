@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-
+const validator = require('validator-js')
 
 mongoose.connect('mongodb://127.0.0.1:27017/task-manager-api', {
     useUnifiedTopology: true,
@@ -20,13 +20,23 @@ const Users = mongoose.model('Users', {
              if(value < 0) {
                 throw new Error('Age must be a positive number')
              }
-         }
-    }
+        }
+    },
+    email : {
+        type : String,
+        required : true,
+        validate(value) {
+            if (!validator.isEmail(value)) {
+                throw new Error('Email is invalid')
+            }
+        }
+    },
 })
 
 const user = new Users({
     name : "Chloé",
-    age : 32
+    age: 32,
+    email : "chloecuny@yahoo.fr"
 })
 
 user.save().then((user) => {
