@@ -12,10 +12,12 @@ const Users = mongoose.model('Users', {
     name : {
         type : String,
         required : true,
+        trim : true,
     },
     age : {
          type : Number,
          required : true,
+         default : 0,
          validate(value) {
              if(value < 0) {
                 throw new Error('Age must be a positive number')
@@ -25,18 +27,31 @@ const Users = mongoose.model('Users', {
     email : {
         type : String,
         required : true,
+        lowercase : true,
         validate(value) {
             if (!validator.isEmail(value)) {
                 throw new Error('Email is invalid')
             }
         }
     },
+    password : {
+        type : String,
+        required : true,
+        minlength : 6,
+        validate(value) {
+            if (value.toLowerCase().includes('password')) {
+                throw new Error('Your password cannot contain "password"')
+            }
+        }
+    },
+        
 })
 
 const user = new Users({
-    name : "Chloé",
-    age: 32,
-    email : "chloecuny@yahoo.fr"
+    name : "    Cecile    ",
+    age: 72,
+    email : "CECILE-CUNY@ORANGE.FR",
+    password : "alaincuny"
 })
 
 user.save().then((user) => {
@@ -44,22 +59,28 @@ user.save().then((user) => {
 }).catch((error) => {
     console.log(error)
 })
-// const Tasks = mongoose.model('Task', {
-//     description : {
-//         type : String
-//     },
-//     completed : {
-//         type: Boolean
-//     }
-// })
 
-// const task = new Tasks({
-//     description : "Faire à manger",
-//     completed: false
-// })
 
-// task.save().then((task) => {
-//     console.log(task)
-// }).catch((error) => {
-//     console.log('Error', error)
-// })
+
+const Tasks = mongoose.model('Task', {
+    description : {
+        type : String,
+        required : true,
+        trim : true,
+    },
+    completed : {
+        type: Boolean,
+        default : false,
+    }
+})
+
+const task = new Tasks({
+    description : '    Manger des frites   '
+     
+})
+
+task.save().then((task) => {
+    console.log(task)
+}).catch((error) => {
+    console.log('Error', error)
+})
