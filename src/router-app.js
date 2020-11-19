@@ -190,13 +190,13 @@ app.get('/users', (req,res) => {
     User.find({}).then((users) => {
         res.send(users)
     }).catch((error) => {
-        res.status(500).send(error)
+        res.status(500).send()
     })
 })
 
-// READ ONLY USER BY ID
+// READ SINGULAR USER BY ID
 app.get('/users/:id', (req,res) => {
-    console.log(req.params)
+    // console.log(req.params)
     const _id = req.params.id
 
     User.findById(_id).then((user) => {
@@ -205,7 +205,7 @@ app.get('/users/:id', (req,res) => {
         }
         res.send(user)
     }).catch((error) => {
-        res.status(500).send(error)
+        res.status(500).send()
     })
 })
 
@@ -227,9 +227,27 @@ app.post('/tasks', (req,res) => {
 
 //  READ ALL TASKS
 app.get('/tasks', (req,res) => {
-    res.send('testing work!')
+
+    Task.find({}).then((task) => {
+       res.send(task)
+    }).catch((error) => {
+        res.status(500).send()
+    })
 })
 
+// READ SINGULAR TASK BY ID
+app.get('/tasks/:id', (req,res) => {
+    const _id = req.params.id
+
+    Task.findById(_id).then(() => {
+        if(!task) {
+            return res.status(404).send()
+        }
+        res.send(task)
+    }).catch((error) => {
+        res.status(500).send()
+    })
+})
 // SERVER CALL
 app.listen(port, () => {
     console.log('serveur is up on port' + port)

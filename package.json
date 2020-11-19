@@ -6,9 +6,9 @@
   "scripts": {
     "start": "node src/router-app.js",
     "dev": "nodemon src/router-app.js -e js,hbs",
-    "mongodb": "/home/etudiant/mongodb/bin/mongod --dbpath=/home/etudiant/mongodb-data",
-    "mongoose": "node src/database/mongoose.js"
+    "mongodb": "/home/etudiant/mongodb/bin/mongod --dbpath=/home/etudiant/mongodb-data" 
   },
+  
   "keywords": [],
   "author": "",
   "license": "ISC",
