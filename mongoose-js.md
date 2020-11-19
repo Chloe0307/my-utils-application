@@ -108,13 +108,6 @@ ATTENTION CAR DANS NOTRE FICHIER MONGOOSE.JS ON UTILISE AUSSI LE NPM VALIDATOR C
 
         {"_id" : "mcjazrlviberkher", "description" : "Order new drill bits", "completed" : false} => tâche créer avec toutes ses valeurs.
 
-
-
-
-
-
-
-
     4 - ENDPOINTS & CRUD
 
         CREATE : POST/tasks -- nous permet de créer une nouvelle tâche.
