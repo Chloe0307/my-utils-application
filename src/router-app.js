@@ -4,11 +4,11 @@ const express = require('express')
 const hbs = require('hbs')
 
 // === FILES IMPORTS
-const geocode = require('./utils/geocode')
-const forecast = require('./utils/forecast')
+const geocode = require('./utils-functions/geocode')
+const forecast = require('./utils-functions/forecast')
 require('./database/mongoose')
-const User = require('./models/users')
-const Task = require('./models/tasks')
+const User = require('./login/user-model')
+const Task = require('./task-manager/tasks-model')
 
 // === UTILS FOR EXPRESS AND LISTEN
 const app = express()
