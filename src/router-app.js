@@ -1,14 +1,14 @@
 //  === NPM
-const path = require('path')
 const express = require('express')
 const hbs = require('hbs')
+const path = require('path')
+require('./database/mongoose')
 
 // === FILES IMPORTS
 const geocode = require('./utils-functions/geocode')
 const forecast = require('./utils-functions/forecast')
-require('./database/mongoose')
 const User = require('./login/user-model')
-const Task = require('./task-manager/tasks-model')
+const Task = require('./task-manager/task-model')
 
 // === UTILS FOR EXPRESS AND LISTEN
 const app = express()
@@ -20,14 +20,14 @@ const publicDirectoryPath = path.join(__dirname, '../public')
 // dossier template puisqu'il s'attend par défaut à les trouver dans un dossier VIEWS
 const viewsPath = path.join(__dirname, '../templates/views')
 const partialsPath = path.join(__dirname, '../templates/partials')
+
 // SETUP HANDLEBARS ENGINE AND VIEWS LOCATION
-// ici c'est notre appel a HBS avec un esyntaxe et une casse toujours identique sinon n'est pas pris en compte.
+// ici c'est notre appel a HBS avec une syntaxe et une casse toujours identique sinon n'est pas pris en compte.
 app.set('view engine', 'hbs')
 app.set('views', viewsPath)
 hbs.registerPartials(partialsPath)
 
 
-// ------------------------- ROUTER APP GET---------------
 // APP.USE méthods
 app.use(express.static(publicDirectoryPath))
 //  la méthode .json() va nous permettre de transmettre les données json directement à un objet pour créer nos users
@@ -170,43 +170,48 @@ app.get('*', (req, res) => {
 // ------------------- ROUTER USERS -------------------
 
 //  CREATE USER 
-app.post('/users', (req,res) => {
+
+// ici on ajoute le paramètre "async" et nous n'avons pas besoin de définir de return car EXPRESS n'utlise pas RETURN.
+app.post('/users', async (req,res) => {
    const user = new User(req.body)
 
-   user.save().then(() => {
-    res.status(201).send(user)
-   }).catch((error) => {
-    //    on envoie toujours les codes erreurs avant l'objet error sinon le code status ne s'affichera pas dans postman.
-    //    res.status(400)
-    //    res.send(error)
-    //   on peut chainer les 2 ensemble :
-    res.status(400).send(error)
-   })
+    // ici nous enregistrons notre user et code qui va suivre ne fonctionnera que si cette ligne a fonctionné.
+    // cependant le resultat ne sera retourné qu'à la fin de l'instruction.
+    try {
+        await user.save()
+        res.status(201).send(user)
+    } catch (error) {
+        res.status(400).send(error)
+    }
 })
 
 // READ ALL USERS
-app.get('/users', (req,res) => {
+app.get('/users', async (req,res) => {
     // la méthode GET nous permet de récupérer tous les utlisateurs et par conséquent on laisse l'{} de find vide pour tous les avoir.
-    User.find({}).then((users) => {
-        res.send(users)
-    }).catch((error) => {
-        res.status(500).send()
-    })
+    
+    try {
+        const users = await User.find({})
+        res.status(200).send(users)
+    } catch (error) {
+        res.status(500).send(error)
+    }
 })
 
 // READ SINGULAR USER BY ID
-app.get('/users/:id', (req,res) => {
+app.get('/users/:id', async (req,res) => {
     // console.log(req.params)
     const _id = req.params.id
 
-    User.findById(_id).then((user) => {
-        if(!user) {
+    try {
+        const userId = await User.findById(_id)
+
+        if(!userId) {
             return res.status(404).send()
         }
-        res.send(user)
-    }).catch((error) => {
-        res.status(500).send()
-    })
+        res.status(200).send(userId)
+    } catch (error) {
+        res.status(500).send(error)
+    }
 })
 
 
@@ -214,15 +219,15 @@ app.get('/users/:id', (req,res) => {
 //  ------------------- ROUTER TASKS -----------------------
 
 // CREATE TASK
-app.post('/tasks', (req,res) => {
+app.post('/tasks',async (req,res) => {
     const task = new Task(req.body)
 
-    task.save().then(() => {
+   try {
+        await task.save()
         res.status(201).send(task)
-    }).catch((error) => {
-        res.status(400).send(error)
-    })
-  
+   } catch (error) {
+       res.status(400).send(error)
+   }
 })
 
 //  READ ALL TASKS
