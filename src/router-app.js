@@ -172,7 +172,7 @@ app.get('*', (req, res) => {
 //  CREATE USER 
 
 // ici on ajoute le paramètre "async" et nous n'avons pas besoin de définir de return car EXPRESS n'utlise pas RETURN.
-app.post('/users', async (req,res) => {
+app.post('/add-users', async (req,res) => {
    const user = new User(req.body)
 
     // ici nous enregistrons notre user et code qui va suivre ne fonctionnera que si cette ligne a fonctionné.
@@ -186,7 +186,7 @@ app.post('/users', async (req,res) => {
 })
 
 // READ ALL USERS
-app.get('/users', async (req,res) => {
+app.get('/list-users', async (req,res) => {
     // la méthode GET nous permet de récupérer tous les utlisateurs et par conséquent on laisse l'{} de find vide pour tous les avoir.
     
     try {
@@ -219,7 +219,7 @@ app.get('/users/:id', async (req,res) => {
 //  ------------------- ROUTER TASKS -----------------------
 
 // CREATE TASK
-app.post('/tasks',async (req,res) => {
+app.post('/add-tasks',async (req,res) => {
     const task = new Task(req.body)
 
    try {
@@ -231,7 +231,7 @@ app.post('/tasks',async (req,res) => {
 })
 
 //  READ ALL TASKS
-app.get('/tasks', (req,res) => {
+app.get('/list-tasks', (req,res) => {
 
     Task.find({}).then((task) => {
        res.send(task)
