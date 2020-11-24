@@ -5,14 +5,18 @@ const path = require('path')
 require('./database/mongoose')
 
 // === FILES IMPORTS
+// Weather functions
 const geocode = require('./utils-functions/geocode')
 const forecast = require('./utils-functions/forecast')
-const User = require('./login/user-model')
-const Task = require('./task-manager/task-model')
 
-// === UTILS FOR EXPRESS AND LISTEN
+// Router
+const userRouter = require('./routers/users-router')
+const taskRouter = require('./routers/tasks-router')
+
+// === Define express and port 
 const app = express()
 const port = process.env.PORT || 3000
+
 
 //  DEFINE PATH FOR EXPRESS CONFIG
 const publicDirectoryPath = path.join(__dirname, '../public')
@@ -32,6 +36,9 @@ hbs.registerPartials(partialsPath)
 app.use(express.static(publicDirectoryPath))
 //  la méthode .json() va nous permettre de transmettre les données json directement à un objet pour créer nos users
 app.use(express.json())
+// va nous permettre d'appeler le fichier qui contient nos routes pour nos utilisateurs ainsi que nos tâches.
+app.use(userRouter)
+app.use(taskRouter)
 
 
 
@@ -157,179 +164,6 @@ app.get('/help/*', (req, res) => {
     })
 })
 
-
-// ------------------- ROUTER USERS -------------------
-
-//  CREATE USER 
-
-// ici on ajoute le paramètre "async" et nous n'avons pas besoin de définir de return car EXPRESS n'utlise pas RETURN.
-app.post('/add-users', async (req,res) => {
-   const user = new User(req.body)
-
-    // ici nous enregistrons notre user et code qui va suivre ne fonctionnera que si cette ligne a fonctionné.
-    // cependant le resultat ne sera retourné qu'à la fin de l'instruction.
-    try {
-        await user.save()
-        res.status(201).send(user)
-    } catch (error) {
-        res.status(400).send(error)
-    }
-})
-
-// READ ALL USERS
-app.get('/list-users', async (req,res) => {
-    // la méthode GET nous permet de récupérer tous les utlisateurs et par conséquent on laisse l'{} de find vide pour tous les avoir.
-    
-    try {
-        const user = await User.find({})
-        res.status(200).send(user)
-    } catch (error) {
-        res.status(400).send(error)
-    }
-})
-
-// READ SINGULAR USER BY ID
-app.get('/user/:id', async (req,res) => {
-  
-    const _id = req.params.id
-
-    try {
-        const userId = await User.findById(_id)
-
-        if(!userId) {
-            return res.status(404).send()
-        }
-        res.status(200).send(userId)
-    } catch (error) {
-        res.status(400).send(error)
-    }
-})
-
-// UPDATE USER
-app.patch('/update-user/:id', async (req,res) => {
-    const _id = req.params.id
-    const user = req.body
-
-    // definition of parameters that the user can update
-    const updates = Object.keys(req.body)
-    const allowedUpdate = ['name', 'email', 'password', 'age']
-    const isValidOperation = updates.every((update) => allowedUpdate.includes(update))
-
-    if (!isValidOperation) {
-        return res.status(404).send({ error : 'Invalid updates! '})
-    }
-    // 
-
-    try {
-        const userUpdate = await User.findByIdAndUpdate(_id, user, { new : true, runValidators : true })
-
-        if(!userUpdate) {
-            return res.status(404).send()
-        }
-        res.status(200).send(userUpdate)
-    } catch (error) {
-        res.status(500).send()
-    }
-})
-// DELETE USER
-app.delete('/delete-user/:id', async (req,res) => {
-    const _id = req.params.id
-
-    try {
-        const deleteUser = await User.findByIdAndDelete(_id)
-        if(!deleteUser) {
-            res.status(404).send()
-        }
-        res.status(200).send(deleteUser)
-    } catch (error) {
-        res.status(500).send()
-    }
-})
-
-
-
-//  ------------------- ROUTER TASKS -----------------------
-
-// CREATE TASK
-app.post('/add-tasks',async (req,res) => {
-    const task = new Task(req.body)
-
-   try {
-        await task.save()
-        res.status(201).send(task)
-   } catch (error) {
-       res.status(400).send(error)
-   }
-})
-
-//  READ ALL TASKS
-app.get('/list-tasks', async (req,res) => {
-
-    try {
-        const task = await Task.find({})
-        res.send(task)
-    } catch(error){
-        res.status(500).send()
-    }
-})
-
-// READ SINGULAR TASK BY ID
-app.get('/task/:id', async (req,res) => {
-    const _id = req.params.id
-
-    try  {
-      const task = await Task.findById(_id)
-      if (!task) {
-          return res.status(404).send()
-      }
-      res.send(task)
-    } catch (error) {
-        res.status(500).send()
-    }
-})
-
-// UPDATE TASK
-app.patch('/update-task/:id', async (req,res) => {
-    const _id = req.params.id
-    const task = req.body
-    
-    const updates = Object.keys(req.body)
-    const allowedUpdate = ['description', 'completed']
-    const isValidOperation = updates.every((update) => allowedUpdate.includes(update))
-
-    if (!isValidOperation) {
-        return res.status(404).send({ error : 'Invalid updates! '})
-    }
-
-    try {
-        const taskUpdate = await Task.findByIdAndUpdate(_id, task, { new : true, runValidators : true })
-
-        if(!taskUpdate) {
-            res.status(404).send()
-        }
-
-        res.status(200).send(taskUpdate)
-    } catch (error) {
-        res.status(500).send()
-    }
-})
-
-// DELETE TASK
-app.delete('/delete-task/:id', async (req,res) => {
-    const _id = req.params.id
-
-    try {
-        const deleteTask = await Task.findByIdAndDelete(_id)
-
-        if (!deleteTask) {
-            res.status(404).send()
-        }
-
-        res.send(deleteTask)
-    } catch (error) {
-        res.status(500).send()
-    }
-})
 //  --------- 404 ------------------
 // ERROR 404
 app.get('*', (req, res) => {
