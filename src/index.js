@@ -231,6 +231,22 @@ app.patch('/update-user/:id', async (req,res) => {
         res.status(500).send()
     }
 })
+// DELETE USER
+app.delete('/delete-user/:id', async (req,res) => {
+    const _id = req.params.id
+
+    try {
+        const deleteUser = await User.findByIdAndDelete(_id)
+        if(!deleteUser) {
+            res.status(404).send()
+        }
+        res.status(200).send(deleteUser)
+    } catch (error) {
+        res.status(500).send()
+    }
+})
+
+
 
 //  ------------------- ROUTER TASKS -----------------------
 
@@ -298,6 +314,22 @@ app.patch('/update-task/:id', async (req,res) => {
     }
 })
 
+// DELETE TASK
+app.delete('/delete-task/:id', async (req,res) => {
+    const _id = req.params.id
+
+    try {
+        const deleteTask = await Task.findByIdAndDelete(_id)
+
+        if (!deleteTask) {
+            res.status(404).send()
+        }
+
+        res.send(deleteTask)
+    } catch (error) {
+        res.status(500).send()
+    }
+})
 //  --------- 404 ------------------
 // ERROR 404
 app.get('*', (req, res) => {
