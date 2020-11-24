@@ -157,15 +157,6 @@ app.get('/help/*', (req, res) => {
     })
 })
 
-// ERROR 404
-app.get('*', (req, res) => {
-    res.render('404-page', {
-        title:'404',
-        errorMessage : 'Page non trouvée',
-
-    })
-})
-
 
 // ------------------- ROUTER USERS -------------------
 
@@ -190,16 +181,16 @@ app.get('/list-users', async (req,res) => {
     // la méthode GET nous permet de récupérer tous les utlisateurs et par conséquent on laisse l'{} de find vide pour tous les avoir.
     
     try {
-        const users = await User.find({})
-        res.status(200).send(users)
+        const user = await User.find({})
+        res.status(200).send(user)
     } catch (error) {
-        res.status(500).send(error)
+        res.status(400).send(error)
     }
 })
 
 // READ SINGULAR USER BY ID
-app.get('/users/:id', async (req,res) => {
-    // console.log(req.params)
+app.get('/user/:id', async (req,res) => {
+  
     const _id = req.params.id
 
     try {
@@ -210,11 +201,25 @@ app.get('/users/:id', async (req,res) => {
         }
         res.status(200).send(userId)
     } catch (error) {
-        res.status(500).send(error)
+        res.status(400).send(error)
     }
 })
 
+app.patch('update-user/:id', async (req,res) => {
+    const _id = req.params.id
+    const user = req.body
 
+    try {
+        const userUpdate = await User.findByIdAndUpdate(_id, user, { new : true, runValidators : true })
+
+        if(!userUpdate) {
+            return res.status(404).send()
+        }
+        res.status(200).send(userUpdate)
+    } catch (error) {
+        res.status(500).send()
+    }
+})
 
 //  ------------------- ROUTER TASKS -----------------------
 
@@ -231,28 +236,42 @@ app.post('/add-tasks',async (req,res) => {
 })
 
 //  READ ALL TASKS
-app.get('/list-tasks', (req,res) => {
+app.get('/list-tasks', async (req,res) => {
 
-    Task.find({}).then((task) => {
-       res.send(task)
-    }).catch((error) => {
+    try {
+        const task = await Task.find({})
+        res.send(task)
+    } catch(error){
         res.status(500).send()
-    })
+    }
 })
 
 // READ SINGULAR TASK BY ID
-app.get('/tasks/:id', (req,res) => {
+app.get('/task/:id', async (req,res) => {
     const _id = req.params.id
 
-    Task.findById(_id).then(() => {
-        if(!task) {
-            return res.status(404).send()
-        }
-        res.send(task)
-    }).catch((error) => {
+    try  {
+      const task = await Task.findById(_id)
+      if (!task) {
+          return res.status(404).send()
+      }
+      res.send(task)
+    } catch (error) {
         res.status(500).send()
+    }
+})
+
+
+//  --------- 404 ------------------
+// ERROR 404
+app.get('*', (req, res) => {
+    res.render('404-page', {
+        title:'404',
+        errorMessage : 'Page non trouvée',
+
     })
 })
+
 // SERVER CALL
 app.listen(port, () => {
     console.log('serveur is up on port' + port)

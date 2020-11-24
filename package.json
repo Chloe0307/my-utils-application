@@ -1,11 +1,11 @@
 {
-  "name": "web-server",
+  "name": "utils-application",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node src/router-app.js",
-    "dev": "nodemon src/router-app.js -e js,hbs",
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js -e js,hbs",
     "mongodb": "/home/etudiant/mongodb/bin/mongod --dbpath=/home/etudiant/mongodb-data",
     "database": "node src/database/mongoose"
   },
