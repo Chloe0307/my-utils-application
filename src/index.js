@@ -205,9 +205,20 @@ app.get('/user/:id', async (req,res) => {
     }
 })
 
-app.patch('update-user/:id', async (req,res) => {
+// UPDATE USER
+app.patch('/update-user/:id', async (req,res) => {
     const _id = req.params.id
     const user = req.body
+
+    // definition of parameters that the user can update
+    const updates = Object.keys(req.body)
+    const allowedUpdate = ['name', 'email', 'password', 'age']
+    const isValidOperation = updates.every((update) => allowedUpdate.includes(update))
+
+    if (!isValidOperation) {
+        return res.status(404).send({ error : 'Invalid updates! '})
+    }
+    // 
 
     try {
         const userUpdate = await User.findByIdAndUpdate(_id, user, { new : true, runValidators : true })
@@ -261,6 +272,31 @@ app.get('/task/:id', async (req,res) => {
     }
 })
 
+// UPDATE TASK
+app.patch('/update-task/:id', async (req,res) => {
+    const _id = req.params.id
+    const task = req.body
+    
+    const updates = Object.keys(req.body)
+    const allowedUpdate = ['description', 'completed']
+    const isValidOperation = updates.every((update) => allowedUpdate.includes(update))
+
+    if (!isValidOperation) {
+        return res.status(404).send({ error : 'Invalid updates! '})
+    }
+
+    try {
+        const taskUpdate = await Task.findByIdAndUpdate(_id, task, { new : true, runValidators : true })
+
+        if(!taskUpdate) {
+            res.status(404).send()
+        }
+
+        res.status(200).send(taskUpdate)
+    } catch (error) {
+        res.status(500).send()
+    }
+})
 
 //  --------- 404 ------------------
 // ERROR 404
