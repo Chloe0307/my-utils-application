@@ -178,3 +178,25 @@ app.get('*', (req, res) => {
 app.listen(port, () => {
     console.log('serveur is up on port' + port)
 })
+
+
+
+
+const bcrypt = require('bcryptjs')
+
+const myFunction = async () => {
+
+    const password = 'salut!'
+
+    // ici  on crée une promesse pour hasher le password et en arguments on donne la variable qui récupère le MDP ainsi que le nb de tour qui va 
+    // déterminer combien de fois l'algorithme de hachage est éxécuté = 8 bon équilibre entre sécurité et vitesse et c'est la valeur recommandé
+    // par le créateur du npm
+    const hashedPassword = await bcrypt.hash(password, 8)
+
+    // console.log(hashedPassword)
+
+    const isMatch = await bcrypt.compare('salut!', hashedPassword)
+    console.log(isMatch)
+}
+
+myFunction()

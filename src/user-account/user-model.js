@@ -1,8 +1,9 @@
 const mongoose = require('mongoose')
 const validator = require('validator')
+const bcrypt = require('bcryptjs')
 
-
-const User = mongoose.model('User', {
+// création d'un schéma pour notre middleware (doc mongoose)
+const userSchema = new mongoose.Schema({
     name : {
         type : String,
         required : true,
@@ -40,5 +41,18 @@ const User = mongoose.model('User', {
     },
         
 })
+
+userSchema.pre('save', async function (next) {
+    const user = this
+
+    if(user.isModified('password')) {
+        user.password = await bcrypt.hash(user.password, 8)
+    }
+    // next nous permet de dire que notre code est fini et qu'il peut passer à la suite et sauvegarder notre utilisateur. pas de next = tourne dans le vide
+    // et ne s'arrête pas
+    next()
+})
+// ici on ajoute notre schema en deuxième argument (doc mongoose)
+const User = mongoose.model('User', userSchema)
 
 module.exports = User

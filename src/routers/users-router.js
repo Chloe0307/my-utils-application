@@ -53,7 +53,6 @@ router.post('/add-users', async (req,res) => {
  // UPDATE USER
  router.patch('/update-user/:id', async (req,res) => {
      const _id = req.params.id
-     const user = req.body
  
      // definition of parameters that the user can update
      const updates = Object.keys(req.body)
@@ -66,12 +65,18 @@ router.post('/add-users', async (req,res) => {
      // 
  
      try {
-         const userUpdate = await User.findByIdAndUpdate(_id, user, { new : true, runValidators : true })
- 
-         if(!userUpdate) {
+
+        // code nécessaire pour que le middleware marche et intercepte correctement l utilisateur avant l'envoi de données en bdd
+        const user = await User.findById(_id)
+        updates.forEach((update) => user[update] = req.body[update])
+        
+        await user.save()
+        //    
+        
+         if(!user) {
              return res.status(404).send()
          }
-         res.status(200).send(userUpdate)
+         res.status(200).send(user)
      } catch (error) {
          res.status(500).send()
      }
