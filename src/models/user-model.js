@@ -1,6 +1,8 @@
 const mongoose = require('mongoose')
 const validator = require('validator')
 const bcrypt = require('bcryptjs')
+const jwt = require('jsonwebtoken')
+
 
 // création d'un schéma pour notre middleware (doc mongoose)
 const userSchema = new mongoose.Schema({
@@ -41,8 +43,29 @@ const userSchema = new mongoose.Schema({
             }
         }
     },
-        
+    // stockage de nos tokens pour pouvoir les suivres et faciliter la connexion et déconnexion des utilisateurs notamment si ils sont connéctés su r
+    // plusieurs appareils en même temps.
+    tokens : [{
+        token : {
+            type: String,
+            required : true
+        }
+    }]    
 })
+
+
+userSchema.methods.generateAuthToken = async function () {
+
+    const user = this
+    const token = jwt.sign({ _id : user._id.toString() }, 'thisismynewcourse')
+
+    user.tokens = user.tokens.concat({ token })
+    await user.save()
+
+    return token
+}
+
+
 
 userSchema.statics.findByCredentials = async (email, password) => {
     const user = await User.findOne({ email })
@@ -60,6 +83,7 @@ userSchema.statics.findByCredentials = async (email, password) => {
 
     return user
 }
+
 
 // Hash the plain text password before saving
 userSchema.pre('save', async function (next) {

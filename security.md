@@ -115,3 +115,11 @@ ici on a crée un tableau de chaines de caractères pour nos clés (description 
 On retrouve notre tâche via finById et on boucle sur le tableau updates et on sauve en bdd les modifications.ter
 ```
 
+### MIDDLEWARE
+
+```
+
+
+whitout middleware (une nouvelle requête arrive dans le serveur): new request => run route handler (et la première chose qui s'éxécute est notre gestionnaire racine, express fait un mapping des routes pour les éxécuter)
+
+whitout middleware (une nouvelle requête arrive sur notre serveur): new request (et on personnalise le comportement de notre serveur pour répondre à nos besoins) => do something (éxécute une fonction que nous configurons pour faire ce que nous voulons EX: si il éxiste un jeton, si nous voulons nous déconnecter ...) => run route handler (notre gestionnaire éxécute les routes ou empêche de les éxécuter si toutes les conditions définie au préalable ne sont pas respectées)

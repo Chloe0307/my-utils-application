@@ -32,6 +32,21 @@ app.set('views', viewsPath)
 hbs.registerPartials(partialsPath)
 
 
+//  CE MIDDLEWARE DOIT TOUJOURS ÊTRE DEFINI AVANT LES AUTES APPELS DE APP.USE
+// ce middleware est utilisé pour gérer notre gestionnaire de routes et selon sa configuration il sert les routes ou les fermes
+// app.use((req,res,next) => {
+//     if(req.method === 'GET' || 'POST' || 'PATCH' || 'DELETE') {
+//         res.status(503).send('Website in maintenance, please come back more later')
+//     } else {
+//         // next ici va nous permettre d'arrêter le script sinon la fonction tournerai dans le vide sans jamais retourner une réponse
+//         next()
+//     }
+//     // ici on veut bloquer toutes les routes pour effectuer des opérations de maintenance sur notre BDD. 2 façons de faire : 
+//     // soit on écrit le code ci-dessus en précisant toutes les routes qui vont être indisponibles.
+//     //  soit on le fait en une seule ligne car ce middleware est fait pour cela :  res.status(503).send('Site is currently down. Check back soon!')
+// }) 
+
+
 // APP.USE méthods
 app.use(express.static(publicDirectoryPath))
 //  la méthode .json() va nous permettre de transmettre les données json directement à un objet pour créer nos users
@@ -179,24 +194,20 @@ app.listen(port, () => {
     console.log('serveur is up on port' + port)
 })
 
-
-
-
-const bcrypt = require('bcryptjs')
+const jwt = require('jsonwebtoken')
 
 const myFunction = async () => {
+    // génère un nouveau token d'authentification. La fonction "sign" prend 2 arguments
+    // - le premier un objet qui contient des données qui vont être incorporées dans le token : on peut définir les valeurs d'authentificatio
+    // que l'on veut mais l'ID reste l id unique est fiable qu'il est préférable d'utiliser
+    // - le second une chaîne
+    // le troisième, un objet avec des options que l'on veut ajouter au token comme le délais de validité /ex.
+    const token = jwt.sign({ _id : 'abc123'}, 'thisismynewcourse', { expiresIn : '7 days' })
+    console.log(token)
 
-    const password = 'salut!'
-
-    // ici  on crée une promesse pour hasher le password et en arguments on donne la variable qui récupère le MDP ainsi que le nb de tour qui va 
-    // déterminer combien de fois l'algorithme de hachage est éxécuté = 8 bon équilibre entre sécurité et vitesse et c'est la valeur recommandé
-    // par le créateur du npm
-    const hashedPassword = await bcrypt.hash(password, 8)
-
-    // console.log(hashedPassword)
-
-    const isMatch = await bcrypt.compare('salut!', hashedPassword)
-    console.log(isMatch)
+    //  verify nous permet de nous assurer que l'utilisateur est authentifié correctement
+    const data = jwt.verify(token, 'thisismynewcourse')
+    console.log(data)
 }
 
 myFunction()

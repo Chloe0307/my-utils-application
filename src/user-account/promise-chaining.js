@@ -1,5 +1,5 @@
 require('../src/database/mongoose')
-const User = require('./user-model')
+const User = require('../src/models/user-model')
 
 // ici on pourrait mettre { age : age } mais comme la valeur a le même nom que la variable on raccourci en { age }
 //  Dans cette fonction on veut update l'age de l'utilisateur et mettre à jours le nb de documents qui ont cette age là en asynchrone pour 

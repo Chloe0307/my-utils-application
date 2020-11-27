@@ -1,6 +1,13 @@
+// imports NPM 
 const express = require('express')
-const User = require('../user-account/user-model')
+// imports Models
+const User = require('../models/user-model')
+// Imports Middlewares
+const auth = require('../middlewares/auth')
+
+// Build router
 const router = new express.Router()
+
 
 
 // ------------------- ROUTER USERS -------------------
@@ -14,8 +21,9 @@ router.post('/add-users', async (req,res) => {
      // ici nous enregistrons notre user et code qui va suivre ne fonctionnera que si cette ligne a fonctionné.
      // cependant le resultat ne sera retourné qu'à la fin de l'instruction.
      try {
+         const token = await user.generateAuthToken()
          await user.save()
-         res.status(201).send(user)
+         res.status(201).send({ user, token })
      } catch (error) {
          res.status(400).send(error)
      }
@@ -29,14 +37,17 @@ router.post('/add-users', async (req,res) => {
 
     try {
         const user = await User.findByCredentials(email, password)
-        res.send(user)
+        // l'instance que l'on crée ci-dessous n'est pas basé sur User mais sur user (fonction juste au-dessus), on fait vivre notre fonction sur celle du dessus
+        const token = await user.generateAuthToken()
+        res.send({ user, token })
     } catch(error) {
         res.status(400).send()
     }
     
  })
  // READ ALL USERS
- router.get('/list-users', async (req,res) => {
+//  exemple middleware: dans cette fonction, le gestionnaire racine ne sera éxécuté que si le middleware appelle cette fonction. Donc le Middle passe avant la fonction
+ router.get('/list-users', auth, async (req,res) => {
      // la méthode GET nous permet de récupérer tous les utlisateurs et par conséquent on laisse l'{} de find vide pour tous les avoir.
      
      try {

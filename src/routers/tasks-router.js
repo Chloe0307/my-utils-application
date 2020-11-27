@@ -1,5 +1,5 @@
 const express = require('express')
-const Task = require('../task-manager/task-model')
+const Task = require('../models/task-model')
 const router = new express.Router()
 
 // CREATE TASK
