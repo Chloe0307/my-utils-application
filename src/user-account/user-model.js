@@ -21,6 +21,8 @@ const userSchema = new mongoose.Schema({
     },
     email : {
         type : String,
+        // la clé "unique" à true, nous permet de dire que cette adresse email ne peut être relié qu'à un seul et unique compte utilisateur.
+        unique : true,
         required : true,
         lowercase : true,
         validate(value) {
@@ -42,6 +44,24 @@ const userSchema = new mongoose.Schema({
         
 })
 
+userSchema.statics.findByCredentials = async (email, password) => {
+    const user = await User.findOne({ email })
+
+    if(!user) {
+        throw new Error('Unable to login')
+    }
+    // Il est préférable de mettre le même message d erreur pour l emai et le password pour ne pas donner trop d informations a une personne mal intentionné 
+    // qui essaierai de pirater le compte d'un utilisateur. 
+    const isMatch = await bcrypt.compare(password, user.password)
+
+    if(!isMatch) {
+        throw new Error('Unable to login')
+    }
+
+    return user
+}
+
+// Hash the plain text password before saving
 userSchema.pre('save', async function (next) {
     const user = this
 

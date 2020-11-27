@@ -112,6 +112,6 @@ module.exports = User
         await task.save()
 
 ici on a crée un tableau de chaines de caractères pour nos clés (description et completed)
-On retrouve notre tâche via finById et on boucle sur le tableau updates et on sauve en bdd les modifications.
+On retrouve notre tâche via finById et on boucle sur le tableau updates et on sauve en bdd les modifications.ter
 ```
 
