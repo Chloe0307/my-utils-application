@@ -193,21 +193,3 @@ app.get('*', (req, res) => {
 app.listen(port, () => {
     console.log('serveur is up on port' + port)
 })
-
-const jwt = require('jsonwebtoken')
-
-const myFunction = async () => {
-    // génère un nouveau token d'authentification. La fonction "sign" prend 2 arguments
-    // - le premier un objet qui contient des données qui vont être incorporées dans le token : on peut définir les valeurs d'authentificatio
-    // que l'on veut mais l'ID reste l id unique est fiable qu'il est préférable d'utiliser
-    // - le second une chaîne
-    // le troisième, un objet avec des options que l'on veut ajouter au token comme le délais de validité /ex.
-    const token = jwt.sign({ _id : 'abc123'}, 'thisismynewcourse', { expiresIn : '7 days' })
-    console.log(token)
-
-    //  verify nous permet de nous assurer que l'utilisateur est authentifié correctement
-    const data = jwt.verify(token, 'thisismynewcourse')
-    console.log(data)
-}
-
-myFunction()

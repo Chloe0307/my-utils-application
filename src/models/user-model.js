@@ -53,6 +53,17 @@ const userSchema = new mongoose.Schema({
     }]    
 })
 
+userSchema.methods.toJSON = function () {
+    // avec cette ligne de code on crée un utilisateur et on en retire sa valeur
+    const user = this
+    // accès à notre object de données d'un utilisateur
+    const userDatas = user.toObject()
+    // mnt on efface le password et le tokens des données renvoyées à l'utilisateur car il n'en fera rien et cela maximise la sécurité
+    delete userDatas.password
+    delete userDatas.tokens
+
+    return userDatas
+}
 
 userSchema.methods.generateAuthToken = async function () {
 
