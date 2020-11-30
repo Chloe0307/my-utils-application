@@ -45,17 +45,36 @@ router.post('/add-users', async (req,res) => {
     }
     
  })
- // READ ALL USERS
+
+//  LOGOUT
+router.post('/users/logout', auth, async (req,res) => {
+    try {
+        req.user.tokens = req.user.tokens.filter((token) => {
+            return token.token !== req.token
+        })
+        await req.user.save()
+        res.send()
+        
+    } catch (error) {
+        res.status(500).send()
+    }
+})
+
+// LOGOUT ALL ACCOUNT
+router.post('/users/logoutAll', auth, async (req,res) => {
+    try {
+        // tous nos tokens sont contenus dans un tableau et pour avoir accès à l'ensemble du tableau on défini = []
+        req.user.tokens = []
+        req.user.save()
+        res.status(200).send()
+    } catch (error) {
+        res.status(500).send()
+    } 
+})
+ // READ PROFIL
 //  exemple middleware: dans cette fonction, le gestionnaire racine ne sera éxécuté que si le middleware appelle cette fonction. Donc le Middle passe avant la fonction
- router.get('/list-users', auth, async (req,res) => {
-     // la méthode GET nous permet de récupérer tous les utlisateurs et par conséquent on laisse l'{} de find vide pour tous les avoir.
-     
-     try {
-         const user = await User.find({})
-         res.status(200).send(user)
-     } catch (error) {
-         res.status(400).send(error)
-     }
+ router.get('/list-users/my-profil', auth, async (req,res) => {
+     res.send(req.user)
  })
  
  // READ SINGULAR USER BY ID
