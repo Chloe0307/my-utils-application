@@ -53,6 +53,12 @@ const userSchema = new mongoose.Schema({
     }]    
 })
 
+userSchema.virtual('tasks', {
+    ref : 'Tasks',
+    localField : '_id',
+    foreignField : 'owner'
+})
+
 userSchema.methods.toJSON = function () {
     // avec cette ligne de code on crée un utilisateur et on en retire sa valeur
     const user = this

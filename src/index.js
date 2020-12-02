@@ -31,22 +31,6 @@ app.set('view engine', 'hbs')
 app.set('views', viewsPath)
 hbs.registerPartials(partialsPath)
 
-
-//  CE MIDDLEWARE DOIT TOUJOURS ÊTRE DEFINI AVANT LES AUTES APPELS DE APP.USE
-// ce middleware est utilisé pour gérer notre gestionnaire de routes et selon sa configuration il sert les routes ou les fermes
-// app.use((req,res,next) => {
-//     if(req.method === 'GET' || 'POST' || 'PATCH' || 'DELETE') {
-//         res.status(503).send('Website in maintenance, please come back more later')
-//     } else {
-//         // next ici va nous permettre d'arrêter le script sinon la fonction tournerai dans le vide sans jamais retourner une réponse
-//         next()
-//     }
-//     // ici on veut bloquer toutes les routes pour effectuer des opérations de maintenance sur notre BDD. 2 façons de faire : 
-//     // soit on écrit le code ci-dessus en précisant toutes les routes qui vont être indisponibles.
-//     //  soit on le fait en une seule ligne car ce middleware est fait pour cela :  res.status(503).send('Site is currently down. Check back soon!')
-// }) 
-
-
 // APP.USE méthods
 app.use(express.static(publicDirectoryPath))
 //  la méthode .json() va nous permettre de transmettre les données json directement à un objet pour créer nos users
@@ -193,3 +177,18 @@ app.get('*', (req, res) => {
 app.listen(port, () => {
     console.log('serveur is up on port' + port)
 })
+
+const Task = require('./models/task-model')
+const User = require('./models/user-model')
+
+const main = async () => {
+//     const task = await Task.findById('5fc4f661808047698fb93403')
+//     await task.populate('owner').execPopulate()
+//     console.log(task.owner)
+
+    const user = await User.findById('5fc4f661808047698fb93403')
+    await user.populate('tasks').execPopulate()
+    console.log(user.tasks)
+}
+
+main()

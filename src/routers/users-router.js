@@ -73,7 +73,7 @@ router.post('/users/logoutAll', auth, async (req,res) => {
 })
  // READ PROFIL
 //  exemple middleware: dans cette fonction, le gestionnaire racine ne sera éxécuté que si le middleware appelle cette fonction. Donc le Middle passe avant la fonction
- router.get('/list-users/my-profil', auth, async (req,res) => {
+ router.get('/users/my-profile', auth, async (req,res) => {
      res.send(req.user)
  })
  
@@ -95,9 +95,8 @@ router.post('/users/logoutAll', auth, async (req,res) => {
  })
  
  // UPDATE USER
- router.patch('/update-user/:id', async (req,res) => {
-     const _id = req.params.id
- 
+ router.patch('/users/my-profile', auth, async (req,res) => {
+
      // definition of parameters that the user can update
      const updates = Object.keys(req.body)
      const allowedUpdate = ['name', 'email', 'password', 'age']
@@ -109,32 +108,21 @@ router.post('/users/logoutAll', auth, async (req,res) => {
      // 
  
      try {
-
-        // code nécessaire pour que le middleware marche et intercepte correctement l utilisateur avant l'envoi de données en bdd
-        const user = await User.findById(_id)
-        updates.forEach((update) => user[update] = req.body[update])
+        updates.forEach((update) => req.user[update] = req.body[update])
+        await req.user.save()
+        res.send(req.user)
         
-        await user.save()
-        //    
-        
-         if(!user) {
-             return res.status(404).send()
-         }
-         res.status(200).send(user)
      } catch (error) {
          res.status(500).send()
      }
  })
  // DELETE USER
- router.delete('/delete-user/:id', async (req,res) => {
-     const _id = req.params.id
- 
+ router.delete('/users/my-profile', auth, async (req,res) => {
+
      try {
-         const deleteUser = await User.findByIdAndDelete(_id)
-         if(!deleteUser) {
-             res.status(404).send()
-         }
-         res.status(200).send(deleteUser)
+        await req.user.remove()
+        res.send(req.user)
+
      } catch (error) {
          res.status(500).send()
      }
