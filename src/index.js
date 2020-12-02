@@ -177,18 +177,3 @@ app.get('*', (req, res) => {
 app.listen(port, () => {
     console.log('serveur is up on port' + port)
 })
-
-const Task = require('./models/task-model')
-const User = require('./models/user-model')
-
-const main = async () => {
-//     const task = await Task.findById('5fc4f661808047698fb93403')
-//     await task.populate('owner').execPopulate()
-//     console.log(task.owner)
-
-    const user = await User.findById('5fc4f661808047698fb93403')
-    await user.populate('tasks').execPopulate()
-    console.log(user.tasks)
-}
-
-main()

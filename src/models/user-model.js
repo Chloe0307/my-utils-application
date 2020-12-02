@@ -3,6 +3,8 @@ const validator = require('validator')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
+const Task = require('./task-model')
+
 
 // création d'un schéma pour notre middleware (doc mongoose)
 const userSchema = new mongoose.Schema({
@@ -113,6 +115,14 @@ userSchema.pre('save', async function (next) {
     // et ne s'arrête pas
     next()
 })
+
+// DElete user tasks when user is removed
+userSchema.pre('remove', async function (next) {
+    const user = this
+    await Task.deleteMany({ owner: user._id })
+    next()
+})
+
 // ici on ajoute notre schema en deuxième argument (doc mongoose)
 const User = mongoose.model('User', userSchema)
 
