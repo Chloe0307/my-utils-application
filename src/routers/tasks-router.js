@@ -20,13 +20,33 @@ router.post('/add-tasks',auth, async (req,res) => {
    }
 })
 
-//  READ ALL TASKS
+//  READ ALL TASKS AND FILTERING DATAS
 router.get('/list-tasks', auth, async (req,res) => {
-    
+    const match = {}
+    const sort = {
+
+    }
+    if (req.query.completed) {
+        match.completed = req.query.completed === 'true'
+    }
+
+    if (req.query.sortBy) {
+        const parts = req.query.sortBy.split(':')
+        sort[parts[0]] = parts[1] === 'desc' ? -1 : 1
+    }
+
     try {
         // const task = await Task.find({ owner : req.user._id}) => cette ligne sera égale à celle ci-dessous, avec populate.
-        await req.user.populate('tasks').execPopulate()
-        res.send(req.user.tasks)
+        await req.user.populate({
+            path : 'list-tasks',
+            match,
+            options : {
+                limit : parseInt(req.query.limit),
+                skip : parseInt(req.query.skip),
+                sort,
+            } 
+        }).execPopulate()
+        res.send(req.user.task)
     } catch(error){
         res.status(500).send()
     }
