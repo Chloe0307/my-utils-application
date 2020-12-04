@@ -1,5 +1,6 @@
 // imports NPM 
 const express = require('express')
+const multer = require('multer')
 // imports Models
 const User = require('../models/user-model')
 // Imports Middlewares
@@ -7,7 +8,6 @@ const auth = require('../middlewares/auth')
 
 // Build router
 const router = new express.Router()
-
 
 
 // ------------------- ROUTER USERS -------------------
@@ -43,7 +43,10 @@ router.post('/add-users', async (req,res) => {
     } catch(error) {
         res.status(400).send()
     }
-    
+
+    res.render('login', {
+        
+    })
  })
 
 //  LOGOUT
@@ -73,10 +76,33 @@ router.post('/users/logoutAll', auth, async (req,res) => {
 })
  // READ PROFIL
 //  exemple middleware: dans cette fonction, le gestionnaire racine ne sera éxécuté que si le middleware appelle cette fonction. Donc le Middle passe avant la fonction
- router.get('/users/my-profile', auth, async (req,res) => {
+router.get('/users/my-profile', auth, async (req,res) => {
      res.send(req.user)
  })
  
+ // UPLOAD AVATAR
+
+ // creating Avatars folder for uploadings
+const uploadAvatar = multer({
+    dest : 'avatars',
+    limits : {
+        fileSize : 2000000
+    },
+    fileFilter(req, file, cb) {
+        if(!file.originalname.match(/\.(jpeg|jpg|gif|png)$/)) {
+            return cb(new MulterError('Please, upload an avatar in JPEG, JPG, GIF, PNG'))
+        }
+
+        cb(undefined, true)
+    }
+})
+
+// ici notre serveur est configuré pour accepter et sauvegarder les fichiers téléchargés.
+router.post('/users/my-profile/avatar', uploadAvatar.single('avatar'), (req, res) => {
+    res.send()
+})
+
+
  // READ SINGULAR USER BY ID
  router.get('/user/:id', async (req,res) => {
    

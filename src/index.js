@@ -4,6 +4,7 @@ const hbs = require('hbs')
 const path = require('path')
 require('./database/mongoose')
 
+
 // === FILES IMPORTS
 // Weather functions
 const geocode = require('./utils-functions/geocode')
@@ -63,12 +64,19 @@ app.get('/about', (req, res) => {
 // HELP
 app.get('/help', (req, res) => {
     res.render('help', {
-        title:'Ecrivez-moi pour obtenir de l\'aide',
+        title:'Contact',
         thanks: 'Merci pour votre message',
         name: 'Chloé Cuny',
     })
 })
+// LOGIN
+app.get('/add-user', (req, res) => {
+    res.render('add-user', {
+        title : 'Mon compte',
+        image: '../IMG/user-account-img.jpg'
 
+    })
+})
 // LEGAL MENTIONS
 app.get('/legal-mentions', (req,res) => {
     res.render('legal-mentions', {
@@ -142,6 +150,8 @@ app.get('/todolist', (req,res) => {
         image: '../IMG/icon-todolist.jpg',
     })
 })
+
+
 //  ==== ERROR LIST ==========
 // NO SEARCH TERM
 app.get('/products', (req,res) => {

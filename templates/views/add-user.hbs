@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="/IMG/icon-user-account.png">
+    <link href="https://fonts.googleapis.com/css2?family=Merienda&family=Quantico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./CSS/styles.css">
+    <title>Compte utilisateur</title>
+</head>
+<body>
+    <div class="main-content">
+            {{>header}}
+            
+        <div class="login-content">
+            <div class="avatar-content">
+                <h3 class="avatar-title">Mon avatar</h3>
+            </div>   
+            <div class="informations-content">
+                <form class="form-login-content" action="post">
+                    <div class="field-content">
+                        <label class="login-label" for="">Mon nom<span class="required">*</span></label>
+                        <input class="login-input" type="text">
+                    </div>
+                    <div class="field-content">
+                        <label for="" "login-label" >Mon prenom<span class="required">*</span></label>
+                        <input class="login-input" type="text">
+                    </div>
+                    <div class="field-content">
+                        <label for="" "login-label" >Mon âge<span class="required">*</span></label>
+                        <input class="login-input" type="number">
+                    </div>
+                    <div class="field-content">
+                        <label for="" "login-label" >Mon adresse e-mail<span class="required">*</span></label>
+                        <input class="login-input" type="email">
+                    </div>
+                    <div class="field-content">
+                        <label for="" "login-label" >Mon mot de passe<span class="required">*</span></label>
+                        <input class="login-input" type="password">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    {{>footer}}
+</body>

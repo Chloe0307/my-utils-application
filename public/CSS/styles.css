@@ -1,5 +1,6 @@
 /* styles for the body and contents*/
 body {
+    background-color: #0A0759;
     color: black;
     font-family: 'Quantico', sans-serif;
     max-width: 1000px;
@@ -10,6 +11,8 @@ body {
 }
 .header-content {
     padding-top: 2rem;
+    padding-left: 2rem;
+    padding-bottom: 2rem;
     display: flex;
     flex-direction: row;
 }
@@ -19,9 +22,14 @@ body {
 }
 
 .nav-content {
+    background-color: #0A0759;
     padding-top: 3rem;
+    padding-left: 2rem;
     padding-bottom: 3rem;
-    text-align: left;
+    text-align:left;
+    border-top-right-radius: 60%;
+    border-bottom-right-radius: 60%;
+    margin-bottom: 6rem;
 }
 
 .weather-content {
@@ -40,8 +48,16 @@ body {
     flex-direction: column;
 }
 
+.login-content {
+    display: flex;
+}
 
-/* styles for header */
+.avatar-content {
+
+}
+
+
+/* styles for header and links*/
 header {
     background-color: white;
     margin-top: 16px;
@@ -66,8 +82,14 @@ header a {
     margin-top: 20px;
 }
 
+.login-link {
+    margin-left: 10rem;
+    color: #8CE5F5;
+}
 
-
+.add-user-link {
+    color:#8CE5F5;
+}
 
 /*  styles for titles */
 
@@ -75,6 +97,7 @@ header a {
     font-size: 50px;
     color: #2461E0;
     text-align: center;
+    margin-bottom: 5rem;
 }
 
 
@@ -164,6 +187,8 @@ header a {
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: 3rem;
+    padding-right: 3rem;
+    margin-bottom: 6rem;
 }
 
 .button-weather {
@@ -237,6 +262,25 @@ textarea {
     font-size: 15px;
 }
 
+.form-login-content {
+  
+}
+
+.field-content {
+    margin-bottom: 2rem;
+}
+
+.login-label {
+    
+}
+.input-login {
+
+}
+
+.required {
+    color: red;
+    margin-left: 10px;
+}
 
 
 /* styles for footer */

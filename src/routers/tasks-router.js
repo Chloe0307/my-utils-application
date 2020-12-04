@@ -23,9 +23,8 @@ router.post('/add-tasks',auth, async (req,res) => {
 //  READ ALL TASKS AND FILTERING DATAS
 router.get('/list-tasks', auth, async (req,res) => {
     const match = {}
-    const sort = {
-
-    }
+    const sort = {}
+    
     if (req.query.completed) {
         match.completed = req.query.completed === 'true'
     }
