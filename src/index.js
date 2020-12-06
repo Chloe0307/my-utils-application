@@ -46,7 +46,7 @@ app.use(taskRouter)
 // HOME 
 app.get('', (req, res) => {
     res.render('index',{
-        title : 'Bienvenue sur la boîte à outils',
+        title : 'La boîte à outils',
         name: "Chloé Cuny",
         image: '../IMG/organisation-img.jpg'
     })
@@ -58,6 +58,7 @@ app.get('/about', (req, res) => {
         title: 'Qui suis-je?',
         name: 'Chloé Cuny',
         profession: 'Développeuse Web Fulstack JavaScript',
+        image:'../IMG/about-img.jpg'
     })
 })
 
@@ -67,6 +68,7 @@ app.get('/help', (req, res) => {
         title:'Contact',
         thanks: 'Merci pour votre message',
         name: 'Chloé Cuny',
+        image:'../IMG/contact-img.jpg'
     })
 })
 // LOGIN

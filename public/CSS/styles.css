@@ -1,6 +1,6 @@
 /* styles for the body and contents*/
 body {
-    background-color: #0A0759;
+    background-color: #051B54;
     color: black;
     font-family: 'Quantico', sans-serif;
     max-width: 1000px;
@@ -9,77 +9,62 @@ body {
     flex-direction: column;
     min-height: 100vh;
 }
+
+/* HEADER */
 .header-content {
     padding-top: 2rem;
     padding-left: 2rem;
     padding-bottom: 2rem;
     display: flex;
-    flex-direction: row;
-}
-.main-content {
-    background-color: white;
-    flex-grow: 1;
-}
-
-.nav-content {
-    background-color: #0A0759;
-    padding-top: 3rem;
-    padding-left: 2rem;
-    padding-bottom: 3rem;
-    text-align:left;
-    border-top-right-radius: 60%;
-    border-bottom-right-radius: 60%;
-    margin-bottom: 6rem;
-}
-
-.weather-content {
-    display: flex;
-    flex-direction: row;
-}
-
-.about-content {
-    display: flex;
-    flex-direction: row;
-    margin: auto;
-}
-
-.help-content {
-    display: flex;
     flex-direction: column;
+    background-color: #051B54;
 }
 
-.login-content {
+.category-icon {
+    width: 20%;
+    border-radius: 45px;
+    border: 2px solid black;
+    margin-left: 4rem;
+}
+
+.title-content {
     display: flex;
-}
-
-.avatar-content {
-
-}
-
-
-/* styles for header and links*/
-header {
-    background-color: white;
-    margin-top: 16px;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .header-title {
     font-size: 50px;
-    margin-bottom: 16px;
-    margin: auto;
-    text-align: center;
+    margin-left: 4rem;
     margin-bottom: 30px;
     padding-top: 1rem;
-    padding-bottom: 16px;
-    border-bottom: 2px solid black;
+    
 }
 
-header a {
-    color: #2461E0;
-    margin-right: 16px;
+
+
+/* NAVIGATION */
+
+.nav-content {
+    background-color: #051B54;
+    padding-top: 3rem;
+    padding-left: 6rem;
+    padding-bottom: 3rem;
+    text-align:left;
+    margin-bottom: 6rem;
+}
+
+nav a {
+    color: #fd883c;
+    margin-right: 20px;
     text-decoration: none;
     font-size: 20px;
     margin-top: 20px;
+}
+
+nav a:hover {
+    color:#2461E0;
+    text-decoration-line: underline overline;
 }
 
 .login-link {
@@ -91,8 +76,7 @@ header a {
     color:#8CE5F5;
 }
 
-/*  styles for titles */
-
+/* HOME */
 .home-title {
     font-size: 50px;
     color: #2461E0;
@@ -100,11 +84,81 @@ header a {
     margin-bottom: 5rem;
 }
 
+.div-link-home {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+.btn-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+    padding-right: 3rem;
+    margin-bottom: 6rem;
+}
+
+.button-weather {
+    width: 90%;
+    margin-left: 20px;
+    border: 2px solid #f9d24d;
+    border-radius: 45px;
+}
+.button-weather:hover {
+    box-shadow: 10px 10px 99px 6px rgba(249,210,77,1);
+}
+
+.button-calendar {
+     width: 90%;
+     margin-left: 20px;
+     border: 2px solid purple;
+     border-radius: 45px;
+ }
+.button-calendar:hover {
+    box-shadow: 10px 10px 99px 6px rgba(128,0,128,1);
+}
+
+.button-notepad {
+    width: 90%;
+    margin-left: 20px;
+    border: 2px solid #00dfc0;
+    border-radius: 45px;
+}
+.button-notepad:hover {
+    box-shadow: 10px 10px 99px 6px rgba(0,223,192,1);
+}
+
+.button-todolist {
+    width: 90%;
+    margin-left: 20px;
+    border: 2px solid #f1a449;
+    border-radius: 45px;
+}
+.button-todolist:hover {
+    box-shadow: 10px 10px 99px 6px rgba(241,164,73,1);
+}
+
+/* MAIN */
+.main-content {
+    background-color:#051B54;
+    flex-grow: 1;
+}
 
 
+/* WEATHER PAGE */
+.weather-content {
+    display: flex;
+    flex-direction: row;
+}
 
+.weather-img {
+    width: 500px;
+    height: 50vh;
+    padding-bottom: 3rem;
+}
 
-/*  styles for messages */
 .msg-weather-1 {
     font-size: 20px;
 }
@@ -128,6 +182,15 @@ header a {
     margin-left: 3rem;
 }
 
+
+
+/* ABOUT PAGE */
+.about-content {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+}
+
 .message-about {
     margin-right: 3rem;
     margin-left: 3rem;
@@ -135,6 +198,24 @@ header a {
     line-height: 2rem;
     line-clamp: unset;
     font-size: 20px;
+}
+
+.portrait {
+    width: 250px;
+    border: 1px solid #58B7FA;
+    border-radius: 50%;
+    margin-left: 2rem;
+    margin-bottom: 3rem;
+}
+
+
+
+
+
+/* HELP PAGE */
+.help-content {
+    display: flex;
+    flex-direction: column;
 }
 
 .msg-help-1 {
@@ -147,80 +228,6 @@ header a {
     padding-left: 3rem;
 }
 
-
-
-
-
-/* styles for pictures */
-.category-icon {
-    width: 20%;
-    border-radius: 45px;
-    border: 2px solid black;
-}
-
-.portrait {
-    width: 250px;
-    border: 1px solid #58B7FA;
-    border-radius: 10px;
-    margin-left: 3rem;
-}
-
-.weather-img {
-    width: 500px;
-    height: 50vh;
-    padding-bottom: 3rem;
-}
-
-.div-link-home {
-    width: 200px;
-    display: flex;
-    flex-direction: column;
-    margin-left: 20px;
-}
-
-
-
-
-/* styles for buttons */
-.btn-group {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-bottom: 3rem;
-    padding-right: 3rem;
-    margin-bottom: 6rem;
-}
-
-.button-weather {
-    width: 90%;
-    margin-left: 20px;
-    border: 2px solid #f9d24d;
-    border-radius: 45px;
-}
- .button-calendar {
-     width: 90%;
-     margin-left: 20px;
-     border: 2px solid purple;
-     border-radius: 45px;
- }
-
- .button-notepad {
-    width: 90%;
-    margin-left: 20px;
-    border: 2px solid #00dfc0;
-    border-radius: 45px;
- }
-
-.button-todolist {
-    width: 90%;
-    margin-left: 20px;
-    border: 2px solid black;
-    border-radius: 45px;
-}
-
-
-
-/* styles for forms and table calendar*/
 form {
     margin-top: 5rem;
     margin-left: 3rem;
@@ -262,18 +269,56 @@ textarea {
     font-size: 15px;
 }
 
-.form-login-content {
-  
+
+
+/*ADD USER PAGE  */
+.login-content {
+    display: flex;
+    justify-content: space-between;
+    background:
+        url("../IMG/sunset.jpg");
+    background-size:cover;
+    border-radius: 20px; 
+    margin-bottom: 2rem; 
 }
 
+.avatar-content {
+    width: 50%;
+}
+
+.avatar {
+    width: 250px;
+    height: 250px;
+    border: 1px solid #051B54;
+    border-radius: 50%;
+    margin-top: 4rem;
+    margin-left: 7rem;
+}
+ .informations-content {
+    width: 50%;
+    margin-bottom: 30px;
+ }
+
+.h3-title {
+    text-align: center;
+}
+
+ .form-login-content {
+    
+ }
+
 .field-content {
-    margin-bottom: 2rem;
+    margin-bottom: 20px;
+
 }
 
 .login-label {
     
 }
-.input-login {
+
+.login-input {
+    float: right;
+    margin-right: 20px;
 
 }
 
@@ -282,10 +327,24 @@ textarea {
     margin-left: 10px;
 }
 
+.validate-button {
+    float: right;
+    margin-right: 20px;
+    width: 215px;
+    background-color: #051B54;
+    color: #8CE5F5;
+}
+.validate-button:hover {
+    background-color: #8CE5F5;
+    box-shadow: 10px 10px 99px 6px rgba(76,201,240,1);
+    color: #051B54;
+}
 
-/* styles for footer */
+
+
+/* FOOTER */
 footer {
-    background-color: white;
+    background-color: #051B54;
     color: #2461E0;
     border-top: 1px solid #888888;
     padding: 16px 0;
