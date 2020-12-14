@@ -1,6 +1,7 @@
 // imports NPM 
 const express = require('express')
 const multer = require('multer')
+const sharp = require('sharp')
 // imports Models
 const User = require('../models/user-model')
 // Imports Middlewares
@@ -80,28 +81,6 @@ router.get('/users/my-profile', auth, async (req,res) => {
      res.send(req.user)
  })
  
- // UPLOAD AVATAR
-
- // creating Avatars folder for uploadings
-const uploadAvatar = multer({
-    dest : 'avatars',
-    limits : {
-        fileSize : 2000000
-    },
-    fileFilter(req, file, cb) {
-        if(!file.originalname.match(/\.(jpeg|jpg|gif|png)$/)) {
-            return cb(new MulterError('Please, upload an avatar in JPEG, JPG, GIF, PNG'))
-        }
-
-        cb(undefined, true)
-    }
-})
-
-// ici notre serveur est configuré pour accepter et sauvegarder les fichiers téléchargés.
-router.post('/users/my-profile/avatar', uploadAvatar.single('avatar'), (req, res) => {
-    res.send()
-})
-
 
  // READ SINGULAR USER BY ID
  router.get('/user/:id', async (req,res) => {
@@ -153,5 +132,55 @@ router.post('/users/my-profile/avatar', uploadAvatar.single('avatar'), (req, res
          res.status(500).send()
      }
  })
- 
+
+ // UPLOAD AVATAR
+
+ // creating Avatars folder for uploadings
+ const uploadAvatar = multer({
+    limits : {
+        fileSize : 2000000
+    },
+    fileFilter(req, file, cb) {
+        if (!file.originalname.match(/\.(jpeg|jpg|gif|png)$/)) {
+            return cb(new Error('Please, upload an avatar in jpeg, jpg, gif, png'))
+        }
+
+        cb(undefined, true)
+    }
+})
+
+
+// ici notre serveur est configuré pour accepter et sauvegarder les fichiers téléchargés.
+router.post('/users/my-profile/avatar', auth, uploadAvatar.single('avatar'), async (req, res) => {
+    req.user.avatar = req.file.buffer
+    await req.user.save()
+    res.send()
+}, (error, req, res, next) => {
+    res.status(400).send({ error: error.message })
+    console.log(error)
+})
+
+//  GET AVATAR
+router.get('/users/:id/avatar', auth, async (req,res) => {
+
+    try {
+        const user = await User.findById(req.params.id)
+        if (!user || !user.avatar) {
+            throw new Error()
+        }
+
+        res.set('Content-type', 'image/jpg')
+        res.send(user.avatar)
+    } catch(error) {
+        res.status(400).send()
+    }
+})
+
+//  DELETE AVATAR
+router.delete('/users/my-profile/avatar', auth, async (req,res) => {
+    req.user.avatar = undefined
+    await req.user.save()
+    res.send()
+})
+
 module.exports = router

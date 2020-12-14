@@ -52,7 +52,10 @@ const userSchema = new mongoose.Schema({
             type: String,
             required : true
         }
-    }]    
+    }],
+    avatar : {
+        type: Buffer,
+    },
 }, {
     timestamps : true,
 })
@@ -71,6 +74,7 @@ userSchema.methods.toJSON = function () {
     // mnt on efface le password et le tokens des données renvoyées à l'utilisateur car il n'en fera rien et cela maximise la sécurité
     delete userDatas.password
     delete userDatas.tokens
+    delete userDatas.avatar
 
     return userDatas
 }
