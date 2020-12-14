@@ -2,17 +2,17 @@
 const express = require('express')
 const hbs = require('hbs')
 const path = require('path')
-require('./src/database/mongoose')
+require('../src/database/mongoose')
 
 
 // === FILES IMPORTS
 // Weather functions
-const geocode = require('./src/utils-functions/geocode')
-const forecast = require('./src/utils-functions/forecast')
+const geocode = require('../src/utils-functions/geocode')
+const forecast = require('../src/utils-functions/forecast')
 
 // Router
-const userRouter = require('./src/routers/users-router')
-const taskRouter = require('./src/routers/tasks-router')
+const userRouter = require('../src/routers/users-router')
+const taskRouter = require('../src/routers/tasks-router')
 
 // === Define express and port 
 const app = express()
