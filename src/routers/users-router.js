@@ -152,7 +152,10 @@ router.get('/users/my-profile', auth, async (req,res) => {
 
 // ici notre serveur est configuré pour accepter et sauvegarder les fichiers téléchargés.
 router.post('/users/my-profile/avatar', auth, uploadAvatar.single('avatar'), async (req, res) => {
-    req.user.avatar = req.file.buffer
+    // on récupère l'avatar sous forme tampon, que l'on redimensionne (taille standart) et que l'on converti au format png
+    const bufferAvatar = await sharp(req.file.buffer).resize({ width: 250, height: 250 }).png().toBuffer()
+    req.user.avatar = bufferAvatar
+
     await req.user.save()
     res.send()
 }, (error, req, res, next) => {
@@ -169,7 +172,7 @@ router.get('/users/:id/avatar', auth, async (req,res) => {
             throw new Error()
         }
 
-        res.set('Content-type', 'image/jpg')
+        res.set('Content-type', 'image/png')
         res.send(user.avatar)
     } catch(error) {
         res.status(400).send()
