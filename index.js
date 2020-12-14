@@ -34,6 +34,7 @@ hbs.registerPartials(partialsPath)
 
 // APP.USE méthods
 app.use(express.static(publicDirectoryPath))
+app.use('/static', express.static(path.join(__dirname + 'public')))
 //  la méthode .json() va nous permettre de transmettre les données json directement à un objet pour créer nos users
 app.use(express.json())
 // va nous permettre d'appeler le fichier qui contient nos routes pour nos utilisateurs ainsi que nos tâches.
