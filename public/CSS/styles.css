@@ -14,7 +14,6 @@ body {
 .header-content {
     padding-top: 2rem;
     padding-left: 2rem;
-    padding-bottom: 2rem;
     display: flex;
     flex-direction: column;
     background-color: #051B54;
@@ -51,7 +50,7 @@ body {
     padding-left: 6rem;
     padding-bottom: 3rem;
     text-align:left;
-    margin-bottom: 6rem;
+    margin-bottom: 2rem;
 }
 
 nav a {
@@ -75,6 +74,7 @@ nav a:hover {
 .add-user-link {
     color:#8CE5F5;
 }
+
 
 /* HOME */
 .home-title {
@@ -272,6 +272,13 @@ textarea {
 
 
 /*ADD USER PAGE  */
+.add-user-title {
+    font-size: 50px;
+    color: #2461E0;
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
 .login-content {
     display: flex;
     justify-content: space-between;
@@ -284,15 +291,43 @@ textarea {
 
 .avatar-content {
     width: 50%;
+    margin-bottom: 30px;
 }
 
 .avatar {
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
     border: 1px solid #051B54;
-    border-radius: 50%;
-    margin-top: 4rem;
+    border-radius: 20%;
+    margin-top: 5rem;
+    margin-left: 10rem;
+}
+
+.upload-file {
     margin-left: 7rem;
+    margin-top: 3rem;
+    background-color: #051B54;
+    color: #8CE5F5;
+    border: 1px solid #8CE5F5;
+}
+.upload-file:hover {
+    background-color: #8CE5F5;
+    box-shadow: 10px 10px 99px 6px rgba(76,201,240,1);
+    color: #051B54;
+}
+
+.avatar-validate-button {
+    float: left;
+    margin-top: 30px;
+    margin-left: 150px;
+    width: 215px;
+    background-color: #051B54;
+    color: #8CE5F5;
+}
+.avatar-validate-button:hover {
+    background-color: #8CE5F5;
+    box-shadow: 10px 10px 99px 6px rgba(76,201,240,1);
+    color: #051B54;
 }
  .informations-content {
     width: 50%;
@@ -300,6 +335,7 @@ textarea {
  }
 
 .h3-title {
+    font-size: 30px;
     text-align: center;
 }
 
@@ -308,7 +344,7 @@ textarea {
  }
 
 .field-content {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 
 }
 
@@ -329,6 +365,7 @@ textarea {
 
 .validate-button {
     float: right;
+    margin-top: 60px;
     margin-right: 20px;
     width: 215px;
     background-color: #051B54;

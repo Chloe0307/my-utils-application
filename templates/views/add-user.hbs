@@ -13,40 +13,42 @@
 <body>
     <div class="main-content">
             {{>header}}
-            
+        <h2 class="add-user-title">Veuillez fournir vos informations </h2>  
         <div class="login-content">
             <div class="avatar-content">
                 <h3 class="h3-title">Mon avatar</h3>
                 <div class="avatar"></div>
+                <input class="upload-file" type="file" >
+                <button class="avatar-validate-button">Valider</button>
             </div>   
             <div class="informations-content">
                 <h3 class="h3-title">Mes informations personnelles</h3>
-                <form class="form-login-content" action="post">
+                <form class="form-login-content" method="post">
                     <div class="field-content">
                         <label class="login-label" for="">Mon nom<span class="required">*</span></label>
-                        <input class="login-input" type="text">
+                        <input class="login-input" id="lastname" type="text">
                     </div>
                     <div class="field-content">
                         <label for="" class="login-label" >Mon prenom<span class="required">*</span></label>
-                        <input class="login-input" type="text">
+                        <input class="login-input" id="firstname" type="text">
                     </div>
                     <div class="field-content">
                         <label for="" class="login-label" >Mon âge<span class="required">*</span></label>
-                        <input class="login-input" type="number">
+                        <input class="login-input" id="age" type="number">
                     </div>
                     <div class="field-content">
                         <label for="" class="login-label" >Mon adresse e-mail<span class="required">*</span></label>
-                        <input class="login-input" type="email">
+                        <input class="login-input" id="email" type="email">
                     </div>
                     <div class="field-content">
                         <label for="" class="login-label" >Mon mot de passe<span class="required">*</span></label>
-                        <input class="login-input" type="password">
+                        <input class="login-input" id="password" type="password">
                     </div>
                     <button class="validate-button">Valider</button>
                 </form>
             </div>
         </div>
     </div>
-
+    <script src="public/JS/add-user.js"></script>
     {{>footer}}
 </body>
