@@ -300,8 +300,13 @@ textarea {
     height: 240px;
     border-radius: 50%;
     margin-left: 9rem;
-    margin-bottom: 10px;
+    
+}
 
+.form-avatar-content {
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
 }
 
 .avatar-user {
@@ -309,21 +314,22 @@ textarea {
 }
 
 .avatar-label {
-    margin-left: 9rem;
+    margin-left: 5rem;
     
 }
 
 .extensions-accepted {
+    margin-left: 4rem;
     color: white;
     font-size: 10px;
     white-space: nowrap;
-    margin-left: 8rem;
-    
 }
 
 .upload-file {
-    margin-left: 7rem;
+    width: 300px;
     margin-top: 10px;
+    margin-left: 2rem;
+    padding: 13px;
     background-color: #051B54;
     color: #8CE5F5;
     border: 1px solid #8CE5F5;
@@ -335,9 +341,8 @@ textarea {
 }
 
 .avatar-validate-button {
-    float: left;
     margin-top: 20px;
-    margin-left: 150px;
+    margin-left: 6rem;
     width: 215px;
     background-color: #051B54;
     color: #8CE5F5;

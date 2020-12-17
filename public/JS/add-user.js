@@ -10,7 +10,7 @@ let user = {
     },
 
     registerForm : function ()  {
-        const LoginForm = document.querySelector('.form-login-content');
+        const loginForm = document.querySelector('.form-login-content');
         loginForm.addEventListener('submit', user.handleAddUserSubmit);
     },
 
@@ -27,6 +27,22 @@ let user = {
         
     }, 
 
+    registerAvatar : function () {
+
+        const avatarForm = document.querySelector('.form-avatar-content')
+        avatarForm.addEventListener('submit', user.handleAddAvatarSubmit)
+    },
+
+    handleAddAvatarSubmit: function (event) {
+        event.preventDefault()
+
+        const avatarValue = document.querySelector('#avatar').value
+
+        user.sendNewUser(avatarValue)
+
+        avatarValue.
+    },
+
     // this method is to create new user in database
     sendNewUser : function (
         lastname,
@@ -34,13 +50,15 @@ let user = {
         age,
         email,
         password,
+        avatar
     ) {
        let userDatas = {
            lastname,
            firstname,
            age,
            email,
-           password
+           password,
+           avatar
        }
        
        let myHeaders = new Headers()
@@ -62,15 +80,7 @@ let user = {
        })
     },
 
-    registerAvatar : function () {
-
-        let avatarForm = document.querySelector('.form-avatar-content')
-        avatarForm.addEventListener('submit', user.handleSubmitAvatar)
-    },
-
-    handleSubmitAvatar: function (event) {
-        
-    } 
+  
 }
 
 document.addEventListener('DOMContentLoaded', user.init)
