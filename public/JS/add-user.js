@@ -1,53 +1,79 @@
-import Axios from "axios";
 
 let user = {
+    
+    baseURI : 'http://localhost:3000/',
 
-
-    baseURI = 'http://localhost:3000/',
+    init: function () {
+        console.log("je suis l'init");
+        user.registerForm()
+        user.registerAvatar()
+    },
 
     registerForm : function ()  {
-        const form = document.querySelector('.form-login-content');
-        form.addEventListener('submit', handleAddUserSubmit);
+        const LoginForm = document.querySelector('.form-login-content');
+        loginForm.addEventListener('submit', user.handleAddUserSubmit);
     },
 
     handleAddUserSubmit: function (event) {
         event.preventDefault()
 
         const lastnameValue = document.querySelector('#lastname').value;
-        console.log(lastnameValue)
         const firstnameValue = document.querySelector('#firstname').value;
         const ageValue = document.querySelector('#age').value;
         const emailValue = document.querySelector('#email').value;
         const passwordValue = document.querySelector('#password').value;
-        
+
         user.sendNewUser(lastnameValue, firstnameValue, ageValue, emailValue, passwordValue);
         
     }, 
 
     // this method is to create new user in database
     sendNewUser : function (
-        lastnameUser,
-        firstnameUser,
-        ageUser,
-        emailUser,
-        passwordUser,
+        lastname,
+        firstname,
+        age,
+        email,
+        password,
     ) {
+       let userDatas = {
+           lastname,
+           firstname,
+           age,
+           email,
+           password
+       }
+       
+       let myHeaders = new Headers()
+       myHeaders.append("Content-Type", "application/json")
 
-        // axios request to send datas at database to create a new user
-        Axios({
-            method : 'post',
-            url : baseUri + 'add-user',
-            data : {
-                lastname : lastnameUser,
-                firstname : firstnameUser,
-                age : ageUser,
-                email : emailUser,
-                password : passwordUser
-            }  
+       let fetchOptions = {
+           method : 'POST',
+           mode : 'cors',
+           cache : 'no-cache',
+           headers : myHeaders,
+           body : JSON.stringify(userDatas)
+       }
+
+       fetch( user.baseURI + 'add-users', fetchOptions)
+       .then(function(response) {
+           return response.json()
+       }).then(function(newUser) {
+
        })
+    },
 
-    }
+    registerAvatar : function () {
+
+        let avatarForm = document.querySelector('.form-avatar-content')
+        avatarForm.addEventListener('submit', user.handleSubmitAvatar)
+    },
+
+    handleSubmitAvatar: function (event) {
+        
+    } 
 }
+
+document.addEventListener('DOMContentLoaded', user.init)
 
 
     

@@ -16,7 +16,7 @@ const auth = async (req,res,next) => {
 
         // ici nous allons pouvoir vérifier si le token est expiré en appelant son id car ils sont enregistrés dans notre bdd pour le suivi de connexion.
         const user = await User.findOne({ _id: decoded._id, 'tokens.token': token })
-
+ 
         if(!user) {
             throw new Error()
         }

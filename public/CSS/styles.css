@@ -292,20 +292,38 @@ textarea {
 .avatar-content {
     width: 50%;
     margin-bottom: 30px;
+    
 }
 
-.avatar {
-    width: 200px;
-    height: 200px;
-    border: 1px solid #051B54;
-    border-radius: 20%;
-    margin-top: 5rem;
-    margin-left: 10rem;
+.avatar-default {
+    width: 270px;
+    height: 240px;
+    border-radius: 50%;
+    margin-left: 9rem;
+    margin-bottom: 10px;
+
+}
+
+.avatar-user {
+
+}
+
+.avatar-label {
+    margin-left: 9rem;
+    
+}
+
+.extensions-accepted {
+    color: white;
+    font-size: 10px;
+    white-space: nowrap;
+    margin-left: 8rem;
+    
 }
 
 .upload-file {
     margin-left: 7rem;
-    margin-top: 3rem;
+    margin-top: 10px;
     background-color: #051B54;
     color: #8CE5F5;
     border: 1px solid #8CE5F5;
@@ -318,7 +336,7 @@ textarea {
 
 .avatar-validate-button {
     float: left;
-    margin-top: 30px;
+    margin-top: 20px;
     margin-left: 150px;
     width: 215px;
     background-color: #051B54;
@@ -371,6 +389,7 @@ textarea {
     background-color: #051B54;
     color: #8CE5F5;
 }
+
 .validate-button:hover {
     background-color: #8CE5F5;
     box-shadow: 10px 10px 99px 6px rgba(76,201,240,1);

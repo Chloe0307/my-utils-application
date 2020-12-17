@@ -18,7 +18,7 @@ const router = new express.Router()
 // ici on ajoute le paramètre "async" et nous n'avons pas besoin de définir de return car EXPRESS n'utlise pas RETURN.
 router.post('/add-users', async (req,res) => {
     const user = new User(req.body)
- 
+    console.log(res.body)
      // ici nous enregistrons notre user et code qui va suivre ne fonctionnera que si cette ligne a fonctionné.
      // cependant le resultat ne sera retourné qu'à la fin de l'instruction.
      try {
