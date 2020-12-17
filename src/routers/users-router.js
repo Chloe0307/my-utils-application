@@ -75,7 +75,8 @@ router.post('/users/logoutAll', auth, async (req,res) => {
         res.status(500).send()
     } 
 })
- // READ PROFIL
+
+// READ PROFIL
 //  exemple middleware: dans cette fonction, le gestionnaire racine ne sera éxécuté que si le middleware appelle cette fonction. Donc le Middle passe avant la fonction
 router.get('/users/my-profile', auth, async (req,res) => {
      res.send(req.user)

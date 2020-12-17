@@ -8,7 +8,12 @@ const Task = require('./task-model')
 
 // création d'un schéma pour notre middleware (doc mongoose)
 const userSchema = new mongoose.Schema({
-    name : {
+    lastname : {
+        type : String,
+        required : true,
+        trim : true,
+    },
+    firstname : {
         type : String,
         required : true,
         trim : true,
