@@ -274,7 +274,7 @@ textarea {
 /*ADD USER PAGE  */
 .add-user-title {
     font-size: 50px;
-    color: #2461E0;
+    color: #fdd34b;
     text-align: center;
     margin-bottom: 5rem;
 }
@@ -283,7 +283,7 @@ textarea {
     display: flex;
     justify-content: space-between;
     background:
-        url("../IMG/sunset.jpg");
+        url("../IMG/futurist.jpg");
     background-size:cover;
     border-radius: 20px; 
     margin-bottom: 2rem; 
@@ -292,21 +292,26 @@ textarea {
 .avatar-content {
     width: 50%;
     margin-bottom: 30px;
-    
+    display: flex;
+    flex-direction: column;
+   
 }
 
 .avatar-default {
     width: 270px;
-    height: 240px;
+    height: 270px;
     border-radius: 50%;
-    margin-left: 9rem;
-    
+    border: 2px solid #fdd34b;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    align-self: center;
 }
 
 .form-avatar-content {
+    margin: auto;
     display: flex;
     flex-direction: column;
-    align-content: flex-start;
+    align-items: center;
 }
 
 .avatar-user {
@@ -314,47 +319,47 @@ textarea {
 }
 
 .avatar-label {
-    margin-left: 5rem;
-    
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
 .extensions-accepted {
-    margin-left: 4rem;
     color: white;
-    font-size: 10px;
+    font-size: 14px;
     white-space: nowrap;
+    
 }
 
 .upload-file {
     width: 300px;
     margin-top: 10px;
-    margin-left: 2rem;
     padding: 13px;
     background-color: #051B54;
     color: #8CE5F5;
     border: 1px solid #8CE5F5;
 }
 .upload-file:hover {
-    background-color: #8CE5F5;
-    box-shadow: 10px 10px 99px 6px rgba(76,201,240,1);
+    background-color: #5b13a5;
+    box-shadow: 10px 10px 99px 6px rgba(91,19,165,1);
     color: #051B54;
 }
 
 .avatar-validate-button {
-    margin-top: 20px;
-    margin-left: 6rem;
+    margin-top: 30px;
     width: 215px;
     background-color: #051B54;
     color: #8CE5F5;
 }
 .avatar-validate-button:hover {
-    background-color: #8CE5F5;
-    box-shadow: 10px 10px 99px 6px rgba(76,201,240,1);
+    background-color: #fdd34b;
+    box-shadow: 10px 10px 99px 6px rgba(253,211,75,1);
     color: #051B54;
 }
  .informations-content {
     width: 50%;
-    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
  }
 
 .h3-title {
@@ -362,37 +367,43 @@ textarea {
     text-align: center;
 }
 
+.required-msg {
+    text-align: left;
+    font-size: 18px;
+    color:#180291;
+    margin-top: 67px;
+}
+
  .form-login-content {
-    
+    padding-right: 30px;
+    margin-top: 50px; 
  }
 
 .field-content {
-    margin-bottom: 30px;
-
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px; 
 }
 
 .login-label {
-    
+    font-size: 17px;
+    font-weight: bold;
 }
 
 .login-input {
-    float: right;
-    margin-right: 20px;
-
 }
 
 .required {
-    color: red;
+    color: #fdd34b;
     margin-left: 10px;
+    font-weight: bold;
 }
 
 .validate-button {
-    float: right;
-    margin-top: 60px;
-    margin-right: 20px;
-    width: 215px;
+    width: 217px;
     background-color: #051B54;
     color: #8CE5F5;
+    float: right;
 }
 
 .validate-button:hover {

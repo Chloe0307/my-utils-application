@@ -39,8 +39,7 @@ let user = {
         const avatarValue = document.querySelector('#avatar').value
 
         user.sendNewUser(avatarValue)
-
-        avatarValue.
+        user.replaceByUserAvatar(avatarValue)
     },
 
     // this method is to create new user in database
@@ -80,7 +79,13 @@ let user = {
        })
     },
 
-  
+  replaceByUserAvatar : function () {
+      const avatarUser = document.createElement("img").className('avatar-user')
+      const divAvatarContent = document.querySelector('.div-avatar-content')
+
+      avatarUser.appendChild(divAvatarContent)
+      
+  }
 }
 
 document.addEventListener('DOMContentLoaded', user.init)
