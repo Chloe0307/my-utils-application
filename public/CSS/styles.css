@@ -1,7 +1,7 @@
 /* styles for the body and contents*/
 body {
-    background-color: #051B54;
-    color: black;
+    background-color: #080023;
+    color: white;
     font-family: 'Quantico', sans-serif;
     max-width: 1000px;
     margin: 0 auto;
@@ -16,63 +16,63 @@ body {
     padding-left: 2rem;
     display: flex;
     flex-direction: column;
-    background-color: #051B54;
-}
-
-.category-icon {
-    width: 20%;
-    border-radius: 45px;
-    border: 2px solid black;
-    margin-left: 4rem;
+    background-color: #080023;
 }
 
 .title-content {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+  display: flex;
+
+}
+
+.neon {
+    border: 3px solid #FFFC00 ;
+    border-radius: 1.5rem;
+    box-shadow: 3px 3px 3px 3px rgba(249,210,77,1);
+    margin-bottom: 20px;
 }
 
 .header-title {
-    font-size: 50px;
-    margin-left: 4rem;
-    margin-bottom: 30px;
-    padding-top: 1rem;
-    
+    font-family: neon;
+    font-size: 3rem;
+    padding: 0 3.5rem 0 3.5rem;
+    color: #ffd8d8;
 }
-
 
 
 /* NAVIGATION */
 
 .nav-content {
-    background-color: #051B54;
+    background-color:#080023;
     padding-top: 3rem;
-    padding-left: 6rem;
-    padding-bottom: 3rem;
-    text-align:left;
-    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
 }
 
 nav a {
-    color: #fd883c;
+    color: #6260db;
     margin-right: 20px;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 23px;
     margin-top: 20px;
 }
 
 nav a:hover {
-    color:#2461E0;
-    text-decoration-line: underline overline;
+    font-size: 30px;
+    font-family: 'Zeyada', cursive;
+    color: #FFFC00 ;
+    text-shadow:  0 0 0.1em #fdd34b, 0 0 0.1em #fdd34b,
+        0 0 0.1em #fdd34b ;
 }
 
 .login-link {
-    margin-left: 10rem;
     color: #8CE5F5;
+    
 }
 
 .add-user-link {
     color:#8CE5F5;
+    align-self: flex-end;
 }
 
 
@@ -274,7 +274,9 @@ textarea {
 /*ADD USER PAGE  */
 .add-user-title {
     font-size: 50px;
-    color: #fdd34b;
+    background: -webkit-linear-gradient( #fdd34b, #f304cf);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     text-align: center;
     margin-bottom: 5rem;
 }
@@ -297,6 +299,12 @@ textarea {
    
 }
 
+.avatar-title {
+    font-size: 30px;
+    text-align: center;
+    color: #fdd34b;
+
+}
 .avatar-default {
     width: 270px;
     height: 270px;
@@ -362,17 +370,12 @@ textarea {
     flex-direction: column;
  }
 
-.h3-title {
+.informations-title {
     font-size: 30px;
     text-align: center;
+    color: #051B54;
 }
 
-.required-msg {
-    text-align: left;
-    font-size: 18px;
-    color:#180291;
-    margin-top: 67px;
-}
 
  .form-login-content {
     padding-right: 30px;
@@ -412,20 +415,26 @@ textarea {
     color: #051B54;
 }
 
+.required-msg {
+    text-align: left;
+    font-size: 18px;
+    color:#180291;
+    margin-top: 67px;
+}
 
 
 /* FOOTER */
 footer {
-    background-color: #051B54;
+    background-color: #080023;
     color: #2461E0;
     border-top: 1px solid #888888;
     padding: 16px 0;
 }
 
 .footer-title {
-    color: black;
+    color: white;
     margin:auto;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid white;
     width: 170px;
 }
 

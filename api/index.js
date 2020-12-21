@@ -49,7 +49,6 @@ app.get('', (req, res) => {
     res.render('index',{
         title : 'La boîte à outils',
         name: "Chloé Cuny",
-        image: '../IMG/organisation-img.jpg'
     })
 })
 
@@ -59,7 +58,6 @@ app.get('/about', (req, res) => {
         title: 'Qui suis-je?',
         name: 'Chloé Cuny',
         profession: 'Développeuse Web Fulstack JavaScript',
-        image:'../IMG/about-img.jpg'
     })
 })
 
@@ -69,15 +67,12 @@ app.get('/help', (req, res) => {
         title:'Contact',
         thanks: 'Merci pour votre message',
         name: 'Chloé Cuny',
-        image:'../IMG/contact-img.jpg'
     })
 })
 // LOGIN
 app.get('/add-user', (req, res) => {
     res.render('add-user', {
         title : 'Mon compte',
-        image: '../IMG/user-account-img.jpg'
-
     })
 })
 // LEGAL MENTIONS
@@ -96,7 +91,6 @@ app.get('/weather', (req, res) => {
         title: 'Connaître la météo',
         message: 'Vous devez fournir une adresse valide',
         name: 'Chloé Cuny',
-        image: '../IMG/icon-weather.webp'
     }) 
 })
 
@@ -131,7 +125,6 @@ app.get('/calendar', (req,res) => {
     res.render('calendar', {
         title: 'Mon calendrier',
         message: 'i\'m the calendar baby! But I don\'t exist yet',
-        image: '../IMG/icon-calendar.jpg'
     })
 })
 
@@ -140,7 +133,6 @@ app.get('/notepad', (req,res) => {
     res.render('notepad', {
         title: 'Mes petites notes',
         message: 'I\'m the notepad baby! But I don\'t exist yet',
-        image: '../IMG/icon-notepad.jpg'
     })
 })
 
@@ -150,7 +142,6 @@ app.get('/todolist', (req,res) => {
     res.render('todolist', {
         title: 'Ma Todolist',
         message: 'Créez vos listes de tâches à effectuer',
-        image: '../IMG/icon-todolist.jpg',
     })
 })
 
