@@ -1,9 +1,8 @@
 
-let app = {
+let weather= {
 
     init : function () {
-        app.getWeather()
-        calendar.createCalendar()
+        weather.getWeather()
     },
    
     getWeather : function () {
@@ -37,4 +36,4 @@ let app = {
     },
 };
 
-document.addEventListener('DOMContentLoaded', app.init)
+document.addEventListener('DOMContentLoaded', weather.init)

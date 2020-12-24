@@ -44,10 +44,27 @@ body {
 .nav-content {
     background-color:#080023;
     padding-top: 3rem;
-    padding-bottom: 2rem;
+    padding-bottom: 4rem;
     display: flex;
     justify-content: space-between;
 }
+
+.home-button {
+    background-image: url('../IMG/home-button-2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 150px;
+    height: 145px;
+    margin-right: 20px;
+    border-radius: 1.5rem;
+    border: 3px solid rgba(128,0,128,1);
+    box-shadow: 3px 3px 3px 3px rgba(128,0,128,1);
+    margin-top: 0;
+}
+.home-button:hover {
+    box-shadow: 10px 10px 99px 6px rgba(128,0,128,1);
+}
+
 
 nav a {
     color: #6260db;
@@ -284,8 +301,7 @@ textarea {
 .login-content {
     display: flex;
     justify-content: space-between;
-    background:
-        url("../IMG/futurist.jpg");
+    background: url("../IMG/futurist.jpg");
     background-size:cover;
     border-radius: 20px; 
     margin-bottom: 2rem; 

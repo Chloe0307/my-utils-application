@@ -55,7 +55,7 @@ app.get('', (req, res) => {
 // ABOUT
 app.get('/about', (req, res) => {
     res.render('about', {
-        title: 'Qui suis-je?',
+        title: 'A propos',
         name: 'Chloé Cuny',
         profession: 'Développeuse Web Fulstack JavaScript',
     })
@@ -64,7 +64,7 @@ app.get('/about', (req, res) => {
 // HELP
 app.get('/help', (req, res) => {
     res.render('help', {
-        title:'Contact',
+        title:'Aide & Contact',
         thanks: 'Merci pour votre message',
         name: 'Chloé Cuny',
     })
