@@ -2,9 +2,12 @@
 <header>
     <nav class="header-content">
         <div class="title-content">
-            <button type="submit" class="home-button">
-                <a href="/"></a>
-            </button>
+            <button onclick="homeNavigateButton()" class="home-button"></button>
+            <script> 
+                function homeNavigateButton() {
+                    window.location.href="/"
+                }
+            </script>
             <div class="neon">
                 <h1 class="header-title">{{title}}</h1>
             </div>

@@ -3,17 +3,47 @@ let user = {
     
     baseURI : 'http://localhost:3000/',
 
+
+    // initial function 
     init: function () {
-        console.log("je suis l'init");
+        // console.log("je suis l'init");
         user.registerForm()
         user.registerAvatar()
     },
 
+
+    // method to create a new user profil with personals informations in database only
     registerForm : function ()  {
         const loginForm = document.querySelector('.form-login-content');
         loginForm.addEventListener('submit', user.handleAddUserSubmit);
     },
 
+
+    // method to add an avatar in new user profil
+    registerAvatar : function () {
+
+        const avatarForm = document.querySelector('.form-avatar-content')
+        avatarForm.addEventListener('submit', user.handleAddAvatarSubmit)
+
+        // console.log(avatarForm)
+    },
+
+
+    // handle to get user avatar
+    handleAddAvatarSubmit: function (event) {
+        event.preventDefault()
+
+        const avatarDefault = document.querySelector('.avatar-default')
+        // console.log(avatarDefault)
+        
+        const avatarUser = document.getElementById('avatar').value
+
+        
+        console.log(avatarUser)
+    },
+
+
+    // handle to get personals informations
     handleAddUserSubmit: function (event) {
         event.preventDefault()
 
@@ -27,20 +57,6 @@ let user = {
         
     }, 
 
-    registerAvatar : function () {
-
-        const avatarForm = document.querySelector('.form-avatar-content')
-        avatarForm.addEventListener('submit', user.handleAddAvatarSubmit)
-    },
-
-    handleAddAvatarSubmit: function (event) {
-        event.preventDefault()
-
-        const avatarValue = document.querySelector('#avatar').value
-
-        user.sendNewUser(avatarValue)
-        user.replaceByUserAvatar(avatarValue)
-    },
 
     // this method is to create new user in database
     sendNewUser : function (
