@@ -133,6 +133,7 @@ app.get('/calendar', (req,res) => {
     res.render('calendar', {
         title: 'Mon calendrier',
         message: 'i\'m the calendar baby! But I don\'t exist yet',
+        name: 'Chloé Cuny',
         createdBy: "Crée avec",
     })
 })

@@ -24,6 +24,7 @@ body {
 
 }
 
+/* box title */
 .neon {
     border: 3px solid #FFFC00 ;
     border-radius: 1.5rem;
@@ -164,7 +165,7 @@ nav a:hover {
 
 /* MAIN */
 .main-content {
-    background-color:#051B54;
+    background-color:#080023;
     flex-grow: 1;
 }
 
@@ -478,7 +479,38 @@ textarea::placeholder {
 
 
 /* CALENDAR */
+#calendar-content {
+    display: flex;
+    flex-direction: column;
+}
 
+#board {
+    display: flex;
+    margin-top: 1rem;
+    border: 1px solid #fa768d;
+    margin-bottom: 3rem;
+}
+
+.month {
+    width: 100%;
+    height: 40px;
+    background-color: #23d3fc;
+    border: 1px solid #fa768d;
+}
+
+.cellrow {
+    
+}
+
+.cell {
+    background-color: #5c68de;
+    width: 6rem;
+    height: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #fa768d;
+}
 
 /* FOOTER */
 footer {
