@@ -383,7 +383,7 @@ textarea::placeholder {
 
  .form-login-content {
     padding-right: 30px;
-    margin-top: 50px; #fdc821
+    margin-top: 50px;
  }
 
 .field-content {
@@ -496,6 +496,23 @@ textarea::placeholder {
     height: 40px;
     background-color: #23d3fc;
     border: 1px solid #fa768d;
+}
+
+#select-month {
+    width: 100%;
+    height: 40px;
+    background: url("../IMG/futurist.jpg");
+    background-size:cover;
+    background-color: transparent;
+    text-align: center;
+    font-size: 30px;
+    color: #fbd164;
+    padding-left: 25px;
+    cursor: pointer;
+}
+
+#select-month:hover {
+    box-shadow: 10px 10px 99px 6px rgba(250,118,141,1);
 }
 
 .cellrow {

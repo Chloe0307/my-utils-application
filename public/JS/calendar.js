@@ -3,7 +3,7 @@ let calendar = {
 
     init: function () {
         calendar.drawCalendar()
-        calendar.customCalendar()
+        calendar.customMonth()
     },
 
     drawCalendar: function () {
@@ -40,7 +40,7 @@ let calendar = {
         }
     },
 
-    customCalendar: function () {
+    customMonth: function () {
 
         // Getting form Month
         const formEl = document.querySelector('.month')
@@ -61,12 +61,24 @@ let calendar = {
         ]
         // Create and append select list
         const selectList = document.createElement('select')
-        selectList.id = 'selectMonth'
+        selectList.id = 'select-month'
         formEl.appendChild(selectList)
 
         // create and append the options
+        for (let i = 0; i < array.length; i++) {
+            const option = document.createElement('option')
+            option.value = array[i]
+            option.text = array[i]
+            selectList.appendChild(option)
+        }
+
+    },
+
+    customDays: function () {
         
     }
+
+
 }
 
 document.addEventListener('DOMContentLoaded', calendar.init)
