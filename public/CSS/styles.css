@@ -164,41 +164,6 @@ nav a:hover {
 }
 
 
-/* WEATHER PAGE */
-.weather-content {
-    display: flex;
-    flex-direction: row;
-}
-
-.weather-img {
-    width: 500px;
-    height: 50vh;
-    padding-bottom: 3rem;
-}
-
-.msg-weather-1 {
-    font-size: 20px;
-}
-.msg-weather-2 {
-    font-size: 30px;
-    line-height: 1rem;
-    margin-left: 3rem;
-}
-.msg-weather-3 {
-    font-size: 40px;
-    line-height: 1rem;
-    margin-left: 6rem;
-}
-
-#message-location {
-    flex-direction: column;
-    margin-left: 3rem;
-}
-#message-forecast {
-    flex-direction: column;
-    margin-left: 3rem;
-}
-
 
 
 /* ABOUT PAGE */
@@ -437,6 +402,59 @@ textarea {
     color:#180291;
     margin-top: 67px;
 }
+
+
+/* WEATHER PAGE */
+.weather-content {
+    display: flex;
+    flex-direction: row;
+}
+
+.weather-img {
+    width: 500px;
+    height: 50vh;
+    margin-bottom: 3rem;
+    border-radius: 10%;
+    border: 1px solid #2af6fc;
+}
+
+.msg-weather-1 {
+    font-size: 20px;
+}
+.msg-weather-2 {
+    font-size: 30px;
+    line-height: 1rem;
+    margin-left: 2rem;
+}
+.msg-weather-3 {
+    font-size: 40px;
+    line-height: 1rem;
+    margin-left: 6rem;
+    padding-bottom: 2rem;
+}
+
+.form-weather-content {
+    margin-top: 0;
+}
+
+#message-location {
+    flex-direction: column;
+    margin-top: 2rem;
+    margin-left: 3rem;
+    font-size: 20px;
+    color: #fdc821;
+}
+
+#message-forecast {
+    flex-direction: column;
+    margin-top: 2rem;
+    margin-left: 3rem;
+    font-size: 17px;
+    line-height: 2rem;
+}
+
+
+/* CALENDAR */
 
 
 /* FOOTER */
