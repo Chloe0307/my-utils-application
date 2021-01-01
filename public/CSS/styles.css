@@ -29,6 +29,7 @@ body {
     border-radius: 1.5rem;
     box-shadow: 3px 3px 3px 3px rgba(249,210,77,1);
     margin-bottom: 20px;
+    margin: auto;
 }
 
 .header-title {
@@ -43,6 +44,7 @@ body {
 
 .nav-content {
     background-color:#080023;
+    margin-top: 7rem;
     padding-top: 3rem;
     padding-bottom: 4rem;
     display: flex;
@@ -96,7 +98,10 @@ nav a:hover {
 /* HOME */
 .home-title {
     font-size: 50px;
-    color: #2461E0;
+    background: 
+    -webkit-linear-gradient( #fffc00, #fb8382, #fa26db, #4e0f9b );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     text-align: center;
     margin-bottom: 5rem;
 }
@@ -182,16 +187,17 @@ nav a:hover {
     font-size: 20px;
 }
 
+.oclock-external-link {
+    color: #800080;
+}
+
 .portrait {
-    width: 250px;
+    width: 270px;
     border: 1px solid #58B7FA;
     border-radius: 50%;
     margin-left: 2rem;
     margin-bottom: 3rem;
 }
-
-
-
 
 
 /* HELP PAGE */
@@ -210,10 +216,11 @@ nav a:hover {
     padding-left: 3rem;
 }
 
-form {
+#help-form {
     margin-top: 5rem;
-    margin-left: 3rem;
+    align-self: center;
 }
+
 .label-home {
     padding-bottom: 1rem;
     padding-left: 10px;
@@ -228,27 +235,42 @@ input {
 }
 
 button {
+    align-self: center;
     cursor: pointer;
     border: 1px solid #58B7FA;
-    background: white;
+    background: #0cc4f4;
     color: black;
     font-size: 17px;
     padding: 8px;
     border-radius: 10px;
     width: 200px;
-    margin-top: 1rem;
+    margin-top: 2rem;
 }
+
+button:hover {
+    background-color: #fdd34b;
+    box-shadow: 10px 10px 99px 6px rgba(253,211,75,1);
+    color: #051B54;
+}
+
 #help-form {
     display: flex;
     flex-direction: column;
     padding-bottom: 16px;
 }
 textarea {
-    width: 300px;
+    width: 500px;
+    background: url("../IMG/futurist.jpg");
+    background-size:cover;
     border-radius: 10px;
     border: 1px solid #58B7FA;
     padding: 10px;
     font-size: 15px;
+    color:  #fbe665;
+}
+
+textarea::placeholder {
+    color: #fbe665;
 }
 
 
@@ -360,7 +382,7 @@ textarea {
 
  .form-login-content {
     padding-right: 30px;
-    margin-top: 50px; 
+    margin-top: 50px; #fdc821
  }
 
 .field-content {
@@ -435,6 +457,7 @@ textarea {
 
 .form-weather-content {
     margin-top: 0;
+    margin-left: 3rem;
 }
 
 #message-location {
@@ -478,4 +501,10 @@ footer a {
     text-decoration: none;
     font-size: 15px;
     margin-top: 20px;
+}
+
+.signature {
+    margin-top: 3rem;
+    text-align: center;
+    color: #fa7d85;
 }

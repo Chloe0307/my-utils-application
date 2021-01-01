@@ -49,6 +49,7 @@ app.get('', (req, res) => {
     res.render('index',{
         title : 'La boîte à outils',
         name: "Chloé Cuny",
+        createdBy: "Crée avec",
     })
 })
 
@@ -57,7 +58,8 @@ app.get('/about', (req, res) => {
     res.render('about', {
         title: 'A propos',
         name: 'Chloé Cuny',
-        profession: 'Développeuse Web Fulstack JavaScript',
+        profession: 'Développeuse Web Fullstack JavaScript',
+        createdBy: "Crée avec",
     })
 })
 
@@ -67,18 +69,23 @@ app.get('/help', (req, res) => {
         title:'Aide & Contact',
         thanks: 'Merci pour votre message',
         name: 'Chloé Cuny',
+        createdBy: "Crée avec",
     })
 })
 // LOGIN
 app.get('/add-user', (req, res) => {
     res.render('add-user', {
         title : 'Mon compte',
+        name: 'Chloé Cuny',
+        createdBy: "Crée avec",
     })
 })
 // LEGAL MENTIONS
 app.get('/legal-mentions', (req,res) => {
     res.render('legal-mentions', {
-        title: 'Mentions légales'
+        title: 'Mentions légales',
+        name: 'Chloé Cuny',
+        createdBy: "Crée avec",
     })
 })
 
@@ -91,6 +98,7 @@ app.get('/weather', (req, res) => {
         title: 'Connaître la météo',
         message: 'Vous devez fournir une adresse valide',
         name: 'Chloé Cuny',
+        createdBy: "Crée avec",
     }) 
 })
 
@@ -125,6 +133,7 @@ app.get('/calendar', (req,res) => {
     res.render('calendar', {
         title: 'Mon calendrier',
         message: 'i\'m the calendar baby! But I don\'t exist yet',
+        createdBy: "Crée avec",
     })
 })
 
@@ -133,6 +142,8 @@ app.get('/notepad', (req,res) => {
     res.render('notepad', {
         title: 'Mes petites notes',
         message: 'I\'m the notepad baby! But I don\'t exist yet',
+        name: 'Chloé Cuny',
+        createdBy: "Crée avec",
     })
 })
 
@@ -142,6 +153,8 @@ app.get('/todolist', (req,res) => {
     res.render('todolist', {
         title: 'Ma Todolist',
         message: 'Créez vos listes de tâches à effectuer',
+        name: 'Chloé Cuny',
+        createdBy: "Crée avec",
     })
 })
 
@@ -163,7 +176,9 @@ app.get('/products', (req,res) => {
 app.get('/help/*', (req, res) => {
     res.render('404-page', {
         title: '404',
-        errorMessage: 'Article non trouvé'
+        errorMessage: 'Article non trouvé',
+        name: 'Chloé Cuny',
+        createdBy: "Crée avec",
     })
 })
 
@@ -173,7 +188,8 @@ app.get('*', (req, res) => {
     res.render('404-page', {
         title:'404',
         errorMessage : 'Page non trouvée',
-
+        name: 'Chloé Cuny',
+        createdBy: "Crée avec",
     })
 })
 
