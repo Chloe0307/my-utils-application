@@ -42,7 +42,6 @@ body {
 
 
 /* NAVIGATION */
-
 .nav-content {
     background-color:#080023;
     margin-top: 7rem;
@@ -69,7 +68,6 @@ body {
     box-shadow: 10px 10px 99px 6px rgba(128,0,128,1);
 }
 
-
 nav a {
     color: #6260db;
     margin-right: 20px;
@@ -94,6 +92,8 @@ nav a:hover {
     color:#8CE5F5;
     align-self: flex-end;
 }
+
+
 
 
 /* HOME */
@@ -139,7 +139,7 @@ nav a:hover {
      margin-left: 20px;
      border: 2px solid purple;
      border-radius: 45px;
- }
+}
 
 .button-calendar:hover {
     box-shadow: 10px 10px 99px 6px rgba(128,0,128,1);
@@ -151,6 +151,7 @@ nav a:hover {
     border: 2px solid #00dfc0;
     border-radius: 45px;
 }
+
 .button-notepad:hover {
     box-shadow: 10px 10px 99px 6px rgba(0,223,192,1);
 }
@@ -161,15 +162,21 @@ nav a:hover {
     border: 2px solid #f1a449;
     border-radius: 45px;
 }
+
 .button-todolist:hover {
     box-shadow: 10px 10px 99px 6px rgba(241,164,73,1);
 }
+
+
+
 
 /* MAIN */
 .main-content {
     background-color:#080023;
     flex-grow: 1;
 }
+
+
 
 
 /* ABOUT PAGE */
@@ -199,6 +206,8 @@ nav a:hover {
     margin-left: 2rem;
     margin-bottom: 3rem;
 }
+
+
 
 
 /* HELP PAGE */
@@ -275,6 +284,11 @@ textarea::placeholder {
     color: #fbe665;
 }
 
+
+
+
+
+
 /*ADD USER PAGE  */
 .add-user-title {
     font-size: 50px;
@@ -308,6 +322,7 @@ textarea::placeholder {
     color: #fdd34b;
 
 }
+
 .avatar-default {
     width: 270px;
     height: 270px;
@@ -325,10 +340,6 @@ textarea::placeholder {
     align-items: center;
 }
 
-/* .avatar-user {
-
-} */
-
 .avatar-label {
     font-size: 20px;
     font-weight: bold;
@@ -339,7 +350,6 @@ textarea::placeholder {
     color: white;
     font-size: 14px;
     white-space: nowrap;
-    
 }
 
 .upload-file {
@@ -350,6 +360,7 @@ textarea::placeholder {
     color: #8CE5F5;
     border: 1px solid #8CE5F5;
 }
+
 .upload-file:hover {
     background-color: #5b13a5;
     box-shadow: 10px 10px 99px 6px rgba(91,19,165,1);
@@ -362,16 +373,17 @@ textarea::placeholder {
     background-color: #051B54;
     color: #8CE5F5;
 }
+
 .avatar-validate-button:hover {
     background-color: #fdd34b;
     box-shadow: 10px 10px 99px 6px rgba(253,211,75,1);
     color: #051B54;
 }
- .informations-content {
+.informations-content {
     width: 50%;
     display: flex;
     flex-direction: column;
- }
+}
 
 .informations-title {
     font-size: 30px;
@@ -379,11 +391,10 @@ textarea::placeholder {
     color: #051B54;
 }
 
-
- .form-login-content {
+.form-login-content {
     padding-right: 30px;
     margin-top: 50px;
- }
+}
 
 .field-content {
     display: flex;
@@ -395,9 +406,6 @@ textarea::placeholder {
     font-size: 17px;
     font-weight: bold;
 }
-
-/* .login-input {
-} */
 
 .required {
     color: #fdd34b;
@@ -424,6 +432,8 @@ textarea::placeholder {
     color:#180291;
     margin-top: 67px;
 }
+
+
 
 
 /* WEATHER PAGE */
@@ -477,6 +487,8 @@ textarea::placeholder {
 }
 
 
+
+
 /* CALENDAR */
 #calendar-content {
     display: flex;
@@ -513,10 +525,6 @@ textarea::placeholder {
 #select-month:hover {
     box-shadow: 10px 10px 99px 6px rgba(250,118,141,1);
 }
-
-/* .column {
-
-} */
 
 .cell {
     background-color: #5c68de;
@@ -587,6 +595,8 @@ textarea::placeholder {
     -o-animation: rotating 2s linear infinite;
     animation: rotating 2s linear infinite;
   }
+
+
 
 /* FOOTER */
 footer {

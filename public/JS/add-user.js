@@ -23,23 +23,9 @@ let user = {
     registerAvatar : function () {
 
         const avatarForm = document.querySelector('.form-avatar-content')
-        avatarForm.addEventListener('submit', user.handleAddAvatarSubmit)
+        avatarForm.addEventListener('submit', user.handleAddUserSubmit)
 
         // console.log(avatarForm)
-    },
-
-
-    // handle to get user avatar
-    handleAddAvatarSubmit: function (event) {
-        event.preventDefault()
-
-        const avatarDefault = document.querySelector('.avatar-default')
-        // console.log(avatarDefault)
-        
-        const avatarUser = document.getElementById('avatar').value
-
-        
-        console.log(avatarUser)
     },
 
 
@@ -52,8 +38,9 @@ let user = {
         const ageValue = document.querySelector('#age').value;
         const emailValue = document.querySelector('#email').value;
         const passwordValue = document.querySelector('#password').value;
+        const avatarUser = document.getElementById('avatar').value
 
-        user.sendNewUser(lastnameValue, firstnameValue, ageValue, emailValue, passwordValue);
+        user.sendNewUser(lastnameValue, firstnameValue, ageValue, emailValue, passwordValue, avatarUser);
         
     }, 
 
@@ -65,7 +52,7 @@ let user = {
         age,
         email,
         password,
-        avatar
+        avatar,
     ) {
        let userDatas = {
            lastname,
@@ -73,7 +60,7 @@ let user = {
            age,
            email,
            password,
-           avatar
+           avatar,
        }
        
        let myHeaders = new Headers()
@@ -95,7 +82,8 @@ let user = {
        })
     },
 
-  replaceByUserAvatar : function () {
+    // This method is created to replace the default avatar by user avatar
+    replaceByUserAvatar : function () {
       const avatarUser = document.createElement("img").className('avatar-user')
       const divAvatarContent = document.querySelector('.div-avatar-content')
 

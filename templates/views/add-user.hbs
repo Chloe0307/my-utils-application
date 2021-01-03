@@ -16,11 +16,10 @@
             {{>header}}
         <h2 class="add-user-title">Veuillez fournir vos informations </h2>  
         <div class="login-content">
-            
             <div class="avatar-content">
                 <h3 class="avatar-title">Mon avatar</h3>
                 <img class="avatar-default" src="/IMG/default-avatar.jpg" alt="photo ou avatar de profil">
-                <form action="POST" class="form-avatar-content">
+                <form class="form-avatar-content" method="post">
                     <label class="avatar-label">Veuillez séléctionner une image</label>
                     <span class="extensions-accepted">Formats de fichiers acceptés : .png, .jpg, .gif, .jpeg, .svg</span>
                     <input class="upload-file" type="file"  id='avatar' accept=".png, .jpg, .jpeg, .gif, .svg">
@@ -53,7 +52,6 @@
                     <button class="validate-button">Valider</button>
                 </form>
                 <p class="required-msg"> Les champs accompagnés d'une<span class="required">*</span> sont obligatoires</p>
-
             </div>
         </div>
     </div>

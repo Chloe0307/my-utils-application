@@ -13,22 +13,46 @@ const router = new express.Router()
 
 // ------------------- ROUTER USERS -------------------
 
-//  CREATE USER 
+//  CREATE USER & UPLOAD AVATAR
+
+ // creating Avatars folder for uploadings
+ const uploadAvatar = multer({
+    limits : {
+        fileSize : 2000000
+    },
+    fileFilter(req, file, cb) {
+        if (!file.originalname.match(/\.(jpeg|jpg|gif|png)$/)) {
+            return cb(new Error('Please, upload an avatar in jpeg, jpg, gif, png'))
+        }
+
+        cb(undefined, true)
+    }
+})
 
 // ici on ajoute le paramètre "async" et nous n'avons pas besoin de définir de return car EXPRESS n'utlise pas RETURN.
-router.post('/add-users', async (req,res) => {
+router.post('/add-users', uploadAvatar.single('avatar'), async (req,res) => {
     const user = new User(req.body)
-    console.log(res.body)
-     // ici nous enregistrons notre user et code qui va suivre ne fonctionnera que si cette ligne a fonctionné.
+    // console.log(res.body)
+     // ici nous enregistrons notre user et le code qui va suivre ne fonctionnera que si cette ligne a fonctionné.
      // cependant le resultat ne sera retourné qu'à la fin de l'instruction.
-     try {
-         const token = await user.generateAuthToken()
-         await user.save()
-         res.status(201).send({ user, token })
-     } catch (error) {
-         res.status(400).send(error)
-     }
- })
+    try {
+        const token = await user.generateAuthToken()
+        await user.save()
+        res.status(201).send({ user, token })
+    } catch (error) {
+        res.status(400).send(error)
+    }
+
+    const bufferAvatar = await sharp(req.file.buffer).resize({ width: 250, height: 250 }).png().toBuffer()
+    req.user.avatar = bufferAvatar
+
+    await req.user.save()
+    res.send()
+}, (error, req, res, next) => {
+    res.status(400).send({ error: error.message })
+    console.log(error)
+})
+
  
 //  LOGIN WITH EXISTING ACCOUNT
  router.post('/users/login', async (req,res) => {
@@ -134,35 +158,36 @@ router.get('/users/my-profile', auth, async (req,res) => {
      }
  })
 
+ 
  // UPLOAD AVATAR
 
- // creating Avatars folder for uploadings
- const uploadAvatar = multer({
-    limits : {
-        fileSize : 2000000
-    },
-    fileFilter(req, file, cb) {
-        if (!file.originalname.match(/\.(jpeg|jpg|gif|png)$/)) {
-            return cb(new Error('Please, upload an avatar in jpeg, jpg, gif, png'))
-        }
+//  // creating Avatars folder for uploadings
+//  const uploadAvatar = multer({
+//     limits : {
+//         fileSize : 2000000
+//     },
+//     fileFilter(req, file, cb) {
+//         if (!file.originalname.match(/\.(jpeg|jpg|gif|png)$/)) {
+//             return cb(new Error('Please, upload an avatar in jpeg, jpg, gif, png'))
+//         }
 
-        cb(undefined, true)
-    }
-})
+//         cb(undefined, true)
+//     }
+// })
 
 
-// ici notre serveur est configuré pour accepter et sauvegarder les fichiers téléchargés.
-router.post('/users/my-profile/avatar', auth, uploadAvatar.single('avatar'), async (req, res) => {
-    // on récupère l'avatar sous forme tampon, que l'on redimensionne (taille standart) et que l'on converti au format png
-    const bufferAvatar = await sharp(req.file.buffer).resize({ width: 250, height: 250 }).png().toBuffer()
-    req.user.avatar = bufferAvatar
+// // ici notre serveur est configuré pour accepter et sauvegarder les fichiers téléchargés.
+// router.post('/users/my-profile/avatar', auth, uploadAvatar.single('avatar'), async (req, res) => {
+//     // on récupère l'avatar sous forme tampon, que l'on redimensionne (taille standart) et que l'on converti au format png
+//     const bufferAvatar = await sharp(req.file.buffer).resize({ width: 250, height: 250 }).png().toBuffer()
+//     req.user.avatar = bufferAvatar
 
-    await req.user.save()
-    res.send()
-}, (error, req, res, next) => {
-    res.status(400).send({ error: error.message })
-    console.log(error)
-})
+//     await req.user.save()
+//     res.send()
+//     }, (error, req, res, next) => {
+//         res.status(400).send({ error: error.message })
+//         console.log(error)
+// })
 
 //  GET AVATAR
 router.get('/users/:id/avatar', auth, async (req,res) => {
