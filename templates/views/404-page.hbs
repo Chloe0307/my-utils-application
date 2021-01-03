@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" href="/IMG/organisation.jpg">
+    <link rel="icon" href="/IMG/icon-error.jpg">
     <link href="https://fonts.googleapis.com/css2?family=Merienda&family=Quantico&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./CSS/styles.css">
     <title>Erreur</title>
@@ -12,7 +12,15 @@
 <body>
   <div class="main-content">
     {{>header}}
-    <p>{{errorMessage}}</p>
+    <div class="error-content">
+      <h2 class="error-title">{{errorMessage}}</h2>
+      <div class="pattern">
+        <img src="../IMG/circuit-img-404.jpg" alt="" class="circuit-img">
+        <img src="../IMG/logo-404.jpg" alt="" id="error-img" class="rotating">
+      </div>
+      
+    </div>
+    
   </div>
     {{>footer}}
 </body>

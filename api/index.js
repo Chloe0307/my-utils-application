@@ -187,8 +187,8 @@ app.get('/help/*', (req, res) => {
 // ERROR 404
 app.get('*', (req, res) => {
     res.render('404-page', {
-        title:'404',
-        errorMessage : 'Page non trouvée',
+        title:'Page ERREUR',
+        errorMessage : 'Erreur 404 : Cette page n\'éxiste pas',
         name: 'Chloé Cuny',
         createdBy: "Crée avec",
     })

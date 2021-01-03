@@ -1,0 +1,25 @@
+
+    #contcalendar{
+    
+    width:230px;
+    margin:auto;
+    margin-top:100px;
+    background-color:#904044;
+    -webkit-box-shadow: 10px 10px 10px #212121;
+     filter:progid:DXImageTransform.Microsoft.Shadow(color=#333333,direction=120,strength=5);
+    box-shadow: 10px 10px 10px #212121;
+    border:1px ridge #aaa;
+    border-radius:10px;
+    }
+    
+    #contcalendar table{
+    
+    margin:auto;
+    text-align:center;
+    font-size:12px;
+    font-weight:bold;
+    line-height:20px;
+    text-shadow: 10px 10px 10px #232711;
+     filter:progid:DXImageTransform.Microsoft.Shadow(color=#333333,direction=120,strength=7);		  
+     
+    }
