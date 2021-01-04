@@ -15,22 +15,23 @@
         <div class="main-content">
             {{>header}}
             <div class="login-content">
-                <h2 class="login-title">Veuilez entrer vos identifiants</h2>
+                <h2 class="login-title">Veuillez entrer vos identifiants</h2>
                 <div class="login-form-content">
                     <form class="login-form" method="get">
                         <div class="login-field-content">
                             <label class="login-label">Mon email<span class="required">*</span></label>
-                            <input class="login-input" type="email" placeholder="Email">
+                            <input class="login-input" id="emailLogin" type="email" placeholder="Email">
                         </div>
                           <div class="login-field-content">
                             <label class="login-label">Mon mot de passe<span class="required">*</span></label>
-                            <input class="login-input" type="password" placeholder="Mot de passe">
+                            <input class="login-input" id="passwordLogin" type="password" placeholder="Mot de passe">
                         </div>
                         <button class="login-validate-button">Valider</button>   
                     </form>
                 </div>
             </div>
             {{>footer}}
+             <script src="../JS/login.js"></script>
         </div>
     </body>
 </html>

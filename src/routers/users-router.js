@@ -30,7 +30,7 @@ const router = new express.Router()
 })
 
 // ici on ajoute le paramètre "async" et nous n'avons pas besoin de définir de return car EXPRESS n'utlise pas RETURN.
-router.post('/add-users', uploadAvatar.single('avatar'), async (req,res) => {
+router.post('/add-user', uploadAvatar.single('avatar'), async (req,res) => {
     const user = new User(req.body)
     // console.log(res.body)
      // ici nous enregistrons notre user et le code qui va suivre ne fonctionnera que si cette ligne a fonctionné.
@@ -75,7 +75,7 @@ router.post('/add-users', uploadAvatar.single('avatar'), async (req,res) => {
  })
 
 //  LOGOUT
-router.post('/users/logout', auth, async (req,res) => {
+router.post('/user/logout', auth, async (req,res) => {
     try {
         req.user.tokens = req.user.tokens.filter((token) => {
             return token.token !== req.token
@@ -89,7 +89,7 @@ router.post('/users/logout', auth, async (req,res) => {
 })
 
 // LOGOUT ALL ACCOUNT
-router.post('/users/logoutAll', auth, async (req,res) => {
+router.post('/user/logoutAll', auth, async (req,res) => {
     try {
         // tous nos tokens sont contenus dans un tableau et pour avoir accès à l'ensemble du tableau on défini = []
         req.user.tokens = []
@@ -102,7 +102,7 @@ router.post('/users/logoutAll', auth, async (req,res) => {
 
 // READ PROFIL
 //  exemple middleware: dans cette fonction, le gestionnaire racine ne sera éxécuté que si le middleware appelle cette fonction. Donc le Middle passe avant la fonction
-router.get('/users/my-profile', auth, async (req,res) => {
+router.get('/user/my-profile', auth, async (req,res) => {
      res.send(req.user)
  })
  
@@ -125,7 +125,7 @@ router.get('/users/my-profile', auth, async (req,res) => {
  })
  
  // UPDATE USER
- router.patch('/users/my-profile', auth, async (req,res) => {
+ router.patch('/user/my-profile', auth, async (req,res) => {
 
      // definition of parameters that the user can update
      const updates = Object.keys(req.body)
@@ -147,7 +147,7 @@ router.get('/users/my-profile', auth, async (req,res) => {
      }
  })
  // DELETE USER
- router.delete('/users/my-profile', auth, async (req,res) => {
+ router.delete('/user/my-profile', auth, async (req,res) => {
 
      try {
         await req.user.remove()

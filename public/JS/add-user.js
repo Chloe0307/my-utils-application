@@ -14,8 +14,8 @@ let user = {
 
     // method to create a new user profil with personals informations in database only
     registerForm : function ()  {
-        const loginForm = document.querySelector('.form-add-user-content');
-        loginForm.addEventListener('submit', user.handleAddUserSubmit);
+        const loginForm = document.querySelector('.form-add-user-content')
+        loginForm.addEventListener('submit', user.handleAddUserSubmit)
     },
 
 
@@ -40,13 +40,13 @@ let user = {
         const passwordValue = document.querySelector('#password').value;
         const avatarUser = document.getElementById('avatar').value
 
-        user.sendNewUser(lastnameValue, firstnameValue, ageValue, emailValue, passwordValue, avatarUser);
+        user.saveNewUser(lastnameValue, firstnameValue, ageValue, emailValue, passwordValue, avatarUser);
         
     }, 
 
 
     // this method is to create new user in database
-    sendNewUser : function (
+    saveNewUser : function (
         lastname,
         firstname,
         age,
