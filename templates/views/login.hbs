@@ -9,12 +9,27 @@
         <link rel = "preconnect" href = "https://fonts.gstatic.com">
         <link href = "https://fonts.googleapis.com/css2? family = Zeyada & display = swap" rel = "feuille de style ">
         <link rel="stylesheet" href="./CSS/styles.css">
-        <title>Compte utilisateur</title>
+        <title>Connexion</title>
     </head>
     <body>
         <div class="main-content">
             {{>header}}
-
+            <div class="login-content">
+                <h2 class="login-title">Veuilez entrer vos identifiants</h2>
+                <div class="login-form-content">
+                    <form class="login-form" method="get">
+                        <div class="login-field-content">
+                            <label class="login-label">Mon email<span class="required">*</span></label>
+                            <input class="login-input" type="email" placeholder="Email">
+                        </div>
+                          <div class="login-field-content">
+                            <label class="login-label">Mon mot de passe<span class="required">*</span></label>
+                            <input class="login-input" type="password" placeholder="Mot de passe">
+                        </div>
+                        <button class="login-validate-button">Valider</button>   
+                    </form>
+                </div>
+            </div>
             {{>footer}}
         </div>
     </body>

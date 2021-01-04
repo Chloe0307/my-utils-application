@@ -55,7 +55,7 @@ router.post('/add-users', uploadAvatar.single('avatar'), async (req,res) => {
 
  
 //  LOGIN WITH EXISTING ACCOUNT
- router.post('/users/login', async (req,res) => {
+ router.post('/login', async (req,res) => {
 
     const email = req.body.email
     const password = req.body.password

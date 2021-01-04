@@ -299,7 +299,7 @@ textarea::placeholder {
     margin-bottom: 5rem;
 }
 
-.login-content {
+.add-user-content {
     display: flex;
     justify-content: space-between;
     background: url("../IMG/futurist.jpg");
@@ -391,7 +391,7 @@ textarea::placeholder {
     color: #051B54;
 }
 
-.form-login-content {
+.form-add-user-content {
     padding-right: 30px;
     margin-top: 50px;
 }
@@ -402,7 +402,7 @@ textarea::placeholder {
     padding-bottom: 20px; 
 }
 
-.login-label {
+.information-label {
     font-size: 17px;
     font-weight: bold;
 }
@@ -434,7 +434,66 @@ textarea::placeholder {
 }
 
 
+/* LOGIN PAGE */
+.login-title {
+    margin-top: 0;
+    font-size: 50px;
+    background: -webkit-linear-gradient( #fdd34b, #f304cf);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    margin-bottom: 5rem;
+}
 
+.login-form-content {
+    height: 555px;
+    display: flex;
+    justify-content: center;
+    background: url("../IMG/login.jpg");
+    background-size:cover;
+    border-radius: 20px;
+    margin-top: 3rem; 
+    margin-bottom: 4rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem; 
+}
+
+.login-form {
+    align-self: center;
+    padding-top: 50px;
+
+}
+
+.login-field-content {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 15px;
+}
+
+.login-label {
+    font-size: 20px;
+}
+
+.login-input {
+    margin-left: 15px;
+}
+
+.login-validate-button {
+    margin-top: 15px;
+    float: right;
+    width: 217px;
+    background-color: #ffffff;
+    color: #0059b7;
+    border: 1px solid #000e2b;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.login-validate-button:hover {
+    background-color: #001435;
+    box-shadow: 10px 10px 99px 6px #ffffff;
+    color: #ffffff;
+}
 
 /* WEATHER PAGE */
 .weather-content {

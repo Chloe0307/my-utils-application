@@ -14,7 +14,7 @@ let user = {
 
     // method to create a new user profil with personals informations in database only
     registerForm : function ()  {
-        const loginForm = document.querySelector('.form-login-content');
+        const loginForm = document.querySelector('.form-add-user-content');
         loginForm.addEventListener('submit', user.handleAddUserSubmit);
     },
 

@@ -72,10 +72,19 @@ app.get('/help', (req, res) => {
         createdBy: "Crée avec",
     })
 })
-// LOGIN
+// REGISTRATION
 app.get('/add-user', (req, res) => {
     res.render('add-user', {
-        title : 'Mon compte',
+        title : 'Inscription',
+        name: 'Chloé Cuny',
+        createdBy: "Crée avec",
+    })
+})
+
+// LOGIN
+app.get('/login', (req,res) => {
+    res.render('login', {
+        title: 'Connexion',
         name: 'Chloé Cuny',
         createdBy: "Crée avec",
     })
@@ -173,16 +182,6 @@ app.get('/products', (req,res) => {
         })  
 })
 
-// HELP AND MORE ARGUMENTS
-app.get('/help/*', (req, res) => {
-    res.render('404-page', {
-        title: '404',
-        errorMessage: 'Article non trouvé',
-        name: 'Chloé Cuny',
-        createdBy: "Crée avec",
-    })
-})
-
 //  --------- 404 ------------------
 // ERROR 404
 app.get('*', (req, res) => {
@@ -193,6 +192,17 @@ app.get('*', (req, res) => {
         createdBy: "Crée avec",
     })
 })
+
+// HELP AND MORE ARGUMENTS, ERROR 404
+app.get('/help/*', (req, res) => {
+    res.render('404-page', {
+        title:'Page ERREUR',
+        errorMessage : 'Erreur 404 : Cette page n\'éxiste pas',
+        name: 'Chloé Cuny',
+        createdBy: "Crée avec",
+    })
+})
+
 
 // SERVER CALL
 app.listen(port, () => {

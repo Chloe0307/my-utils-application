@@ -9,13 +9,13 @@
     <link rel = "preconnect" href = "https://fonts.gstatic.com">
     <link href = "https://fonts.googleapis.com/css2? family = Zeyada & display = swap" rel = "feuille de style ">
     <link rel="stylesheet" href="./CSS/styles.css">
-    <title>Compte utilisateur</title>
+    <title>Inscription</title>
 </head>
 <body>
     <div class="main-content">
             {{>header}}
         <h2 class="add-user-title">Veuillez fournir vos informations </h2>  
-        <div class="login-content">
+        <div class="add-user-content">
             <div class="avatar-content">
                 <h3 class="avatar-title">Mon avatar</h3>
                 <img class="avatar-default" src="/IMG/default-avatar.jpg" alt="photo ou avatar de profil">
@@ -28,26 +28,26 @@
             </div>   
             <div class="informations-content">
                 <h3 class="informations-title">Mes informations personnelles</h3>
-                <form class="form-login-content" method="post">
+                <form class="form-add-user-content" method="post">
                     <div class="field-content">
-                        <label class="login-label" for="">Mon nom<span class="required">*</span></label>
-                        <input class="login-input" id="lastname" type="text">
+                        <label class="information-label">Mon nom<span class="required">*</span></label>
+                        <input class="information-input" id="lastname" type="text">
                     </div>
                     <div class="field-content">
-                        <label for="" class="login-label" >Mon prenom<span class="required">*</span></label>
-                        <input class="login-input" id="firstname" type="text">
+                        <label class="information-label">Mon prenom<span class="required">*</span></label>
+                        <input class="information-input" id="firstname" type="text">
                     </div>
                     <div class="field-content">
-                        <label for="" class="login-label" >Mon âge<span class="required">*</span></label>
-                        <input class="login-input" id="age" type="number">
+                        <label class="information-label">Mon âge<span class="required">*</span></label>
+                        <input class="information-input" id="age" type="number">
                     </div>
                     <div class="field-content">
-                        <label for="" class="login-label" >Mon adresse e-mail<span class="required">*</span></label>
-                        <input class="login-input" id="email" type="email">
+                        <label class="information-label">Mon adresse e-mail<span class="required">*</span></label>
+                        <input class="information-input" id="email" type="email">
                     </div>
                     <div class="field-content">
-                        <label for="" class="login-label" >Mon mot de passe<span class="required">*</span></label>
-                        <input class="login-input" id="password" type="password">
+                        <label class="information-label">Mon mot de passe<span class="required">*</span></label>
+                        <input class="information-input" id="password" type="password">
                     </div>
                     <button class="validate-button">Valider</button>
                 </form>
