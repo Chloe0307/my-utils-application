@@ -52,7 +52,7 @@ body {
 }
 
 .home-button {
-    background-image: url('../IMG/home-button-2.jpg');
+    background-image: url('../IMG/home-button.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     width: 150px;
@@ -244,7 +244,7 @@ input {
     font-size: 15px;
 }
 
-button {
+.help-button {
     align-self: center;
     cursor: pointer;
     border: 1px solid #58B7FA;
@@ -257,7 +257,7 @@ button {
     margin-top: 2rem;
 }
 
-button:hover {
+.help-button:hover {
     background-color: #fdd34b;
     box-shadow: 10px 10px 99px 6px rgba(253,211,75,1);
     color: #051B54;
@@ -484,9 +484,11 @@ textarea::placeholder {
     margin-top: 15px;
     float: right;
     width: 217px;
+    padding: 5px;
     background-color: #ffffff;
     color: #0059b7;
     border: 1px solid #000e2b;
+    border-radius: 10px;
     font-weight: bold;
     font-size: 20px;
 }
@@ -598,6 +600,78 @@ textarea::placeholder {
 }
 
 
+
+/* TO DO LIST PAGE */
+.msg-todolist {
+    text-align: center;
+    font-size: 2rem;
+    font-style: italic;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid white;
+}
+
+.add-task-content {
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.add-task-title {
+    font-size: 28px;
+    padding: 10px 10px 0 10px;
+    margin-bottom: 30px;
+}
+
+.add-task-input {
+    width: 450px;
+    height: 35px;
+    font-size: 20px;
+    align-self: center;
+    margin-right: 5px;
+}
+
+.add-task-button {
+    background: url("../IMG/add-button.jpg");
+    background-size:cover;
+    width: 55px;
+    height: 55px;
+    border: 2px solid #ffc107;
+    border-radius: 10px;
+    align-self: center;
+    margin-right: 5px;
+}
+
+.update-task-button {
+    background: url("../IMG/update-task.jpeg");
+    background-size:cover;
+    width: 55px;
+    height: 55px;
+    border: 2px solid #ffc107;
+    border-radius: 10px;
+    align-self: center;
+    margin-right: 5px;
+}
+
+.completed-task-button {
+    background: url("../IMG/completed-task.jpeg");
+    background-size:cover;
+    width: 55px;
+    height: 55px;
+    border: 2px solid #ffc107;
+    border-radius: 10px;
+    align-self: center;
+    margin-right: 5px;
+}
+
+.delete-task-button {
+    background: url("../IMG/delete-task.jpeg");
+    background-size:cover;
+    width: 55px;
+    height: 55px;
+    border: 2px solid #ffc107;
+    border-radius: 10px;
+    align-self: center;
+}
 /* PAGE 404 */
 .error-content {
     flex-direction: column;
