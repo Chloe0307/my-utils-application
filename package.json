@@ -8,7 +8,10 @@
     "dev": "nodemon api/index.js -e js,hbs",
     "mongodb": "/home/etudiant/mongodb/bin/mongod --dbpath=/home/etudiant/mongodb-data",
     "database": "node src/database/mongoose",
-    "test" : "jest"
+    "test": "env-cmd ./config/test.env jest --watch"
+  },
+  "jest": {
+    "testEnvironment": "node"
   },
   "keywords": [],
   "author": "",
@@ -29,6 +32,7 @@
   },
   "devDependencies": {
     "jest": "^26.6.3",
-    "nodemon": "^2.0.6"
+    "nodemon": "^2.0.6",
+    "supertest": "^6.0.1"
   }
 }
