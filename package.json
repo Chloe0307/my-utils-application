@@ -7,7 +7,8 @@
     "start": "node api/index.js",
     "dev": "nodemon api/index.js -e js,hbs",
     "mongodb": "/home/etudiant/mongodb/bin/mongod --dbpath=/home/etudiant/mongodb-data",
-    "database": "node src/database/mongoose"
+    "database": "node src/database/mongoose",
+    "test" : "jest"
   },
   "keywords": [],
   "author": "",
@@ -27,6 +28,7 @@
     "validator": "^13.1.17"
   },
   "devDependencies": {
+    "jest": "^26.6.3",
     "nodemon": "^2.0.6"
   }
 }
