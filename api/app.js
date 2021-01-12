@@ -17,8 +17,6 @@ const taskRouter = require('../src/routers/tasks-router')
 // === Define express and port 
 const app = express()
 
-
-
 //  DEFINE PATH FOR EXPRESS CONFIG
 const publicDirectoryPath = path.join(__dirname, '../public')
 // ici nous renommons le fichier views en templates dans une variable pour pouvoir donner les indications a HBS d'aller chercher les template dans ce
@@ -31,6 +29,7 @@ const partialsPath = path.join(__dirname, '../templates/partials')
 app.set('view engine', 'hbs')
 app.set('views', viewsPath)
 hbs.registerPartials(partialsPath)
+
 
 // APP.USE méthods
 app.use(express.static(publicDirectoryPath))

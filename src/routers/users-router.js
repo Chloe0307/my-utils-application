@@ -17,6 +17,7 @@ const router = new express.Router()
 
  // creating Avatars folder for uploadings
  const uploadAvatar = multer({
+    // storage : multer.memoryStorage(),
     limits : {
         fileSize : 2000000
     },
@@ -43,6 +44,7 @@ router.post('/add-user', uploadAvatar.single('avatar'), async (req,res) => {
         res.status(400).send(error)
     }
 
+
     const bufferAvatar = await sharp(req.file.buffer).resize({ width: 250, height: 250 }).png().toBuffer()
     req.user.avatar = bufferAvatar
 
@@ -50,7 +52,7 @@ router.post('/add-user', uploadAvatar.single('avatar'), async (req,res) => {
     res.send()
 }, (error, req, res, next) => {
     res.status(400).send({ error: error.message })
-    console.log(error)
+    // console.log(error)
 })
 
  
