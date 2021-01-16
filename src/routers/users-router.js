@@ -25,7 +25,7 @@ const router = new express.Router()
         if (!file.originalname.match(/\.(jpeg|jpg|gif|png)$/)) {
             return cb(new Error('Please, upload an avatar in jpeg, jpg, gif, png'))
         }
-
+        
         cb(undefined, true)
     }
 })
@@ -43,7 +43,6 @@ router.post('/add-user', uploadAvatar.single('avatar'), async (req,res) => {
     } catch (error) {
         res.status(400).send(error)
     }
-
 
     const bufferAvatar = await sharp(req.file.buffer).resize({ width: 250, height: 250 }).png().toBuffer()
     req.user.avatar = bufferAvatar
