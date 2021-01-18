@@ -44,6 +44,7 @@ router.post('/add-user', uploadAvatar.single('avatar'), async (req,res) => {
         res.status(400).send(error)
     }
 
+    // todo installer formidable
     const bufferAvatar = await sharp(req.file.buffer).resize({ width: 250, height: 250 }).png().toBuffer()
     req.user.avatar = bufferAvatar
 

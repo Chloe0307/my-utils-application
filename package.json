@@ -20,7 +20,7 @@
     "@vercel/node": "^1.8.5",
     "bcryptjs": "^2.4.3",
     "express": "^4.17.1",
-    "get-stream": "^6.0.0",
+    "formidable": "^1.2.2",
     "hbs": "^4.1.1",
     "heroku": "^7.47.0",
     "jsonwebtoken": "^8.5.1",

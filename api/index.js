@@ -1,6 +1,10 @@
 const app = require('./app')
+const path = require('path')
 
 const port = process.env.PORT || 3000
+const viewsPath = path.join(__dirname, '../templates/views')
+
+app.set('views', viewsPath)
 
 //  ======== NAV LIST ==========
 // HOME 
@@ -41,7 +45,8 @@ app.get('/add-user', (req, res) => {
 })
 
 // LOGIN
-app.get('/login', (req,res) => {
+app.get('^login$/', (req,res) => {
+    console.log("lol")
     res.render('login', {
         title: 'Connexion',
         name: 'Chloé Cuny',
@@ -144,7 +149,7 @@ app.get('/products', (req,res) => {
 //  --------- 404 ------------------
 // ERROR 404
 app.get('*', (req, res) => {
-    res.render('404-page', {
+    res.render( '404-page', {
         title:'Page ERREUR',
         errorMessage : 'Erreur 404 : Cette page n\'éxiste pas',
         name: 'Chloé Cuny',
